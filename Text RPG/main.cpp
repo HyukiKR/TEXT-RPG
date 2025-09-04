@@ -22,5 +22,7 @@ int main()
 
 	gameManager.battle(player);
 
+	//푸시 테스트 용 주석
+
 	return 0;
 }
