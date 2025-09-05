@@ -33,10 +33,11 @@ void Character::levelUp()
 {
 	if (level <= 10)
 	{
+		level++;
+		experience -= 100;		
 		maxHealth += level * 20;
 		health = maxHealth;
 		attack += level * 5;
-
 	}
 	else
 		cout << "최대 레벨인 10에 도달했습니다." << endl;
@@ -55,6 +56,24 @@ void Character::takeDamage(int damage)
 	if (health < 0)
 	{
 		health = 0;
+	}
+}
+
+void Character::setExperience(int exp)
+{
+	experience += exp;
+	if (experience >= 100)
+	{
+		levelUp();
+	}
+}
+
+void Character::setGold(int amount)
+{
+	gold += amount;
+	if (gold < 0)
+	{
+		gold = 0;
 	}
 }
 

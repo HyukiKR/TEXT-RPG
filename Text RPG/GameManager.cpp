@@ -15,11 +15,7 @@ void displayBattleChoice()
 
 Monster* GameManager::generateMonster(int level)
 {
-	random_device rd;
-	mt19937 gen(rd());
-	uniform_int_distribution<int> dist(0, 3);
-
-	int ran = dist(gen);
+	int ran = randNum(0, 3);
 
 	switch (ran)
 	{
@@ -62,6 +58,7 @@ void GameManager::battle(Character* Player)
 			{
 				cout << monster->getName() << "Ã³Ä¡!" << endl;
 				delete monster;
+				reward(Player, 50);
 				return;
 			}
 			else
@@ -94,4 +91,31 @@ void GameManager::battle(Character* Player)
 void GameManager::displayInventory(Character* Player)
 {
 	//ÀÎº¥Åä¸® µð½ºÇÃ·¹ÀÌ ½Ã½ºÅÛ
+}
+
+void GameManager::reward(Character* Player, int exp)
+{
+	int ran = randNum(20, 30);
+
+	//°æÇèÄ¡ ¹× °ñµå º¸»ó ½Ã½ºÅÛ
+	Player->setExperience(exp);
+	Player->setGold(ran);
+
+	cout << "ÀüÅõ ½Â¸® : °æÇèÄ¡ " << exp << " È¹µæ, °ñµå: " << ran << "G È¹µæ!" << endl;
+
+	//¾ÆÀÌÅÛ È¹µæ È®·ü 30%
+	ran = randNum(1, 10);
+	if(ran >= 1 && ran <= 3)
+		cout << "¾ÆÀÌÅÛ È¹µæ!" << endl;
+	else
+		cout << "¾ÆÀÌÅÛ È¹µæ ½ÇÆÐ!" << endl;
+}
+
+int GameManager::randNum(int min, int max)
+{
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<int> dist(min, max);
+
+	return dist(gen);
 }

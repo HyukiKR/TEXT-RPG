@@ -14,5 +14,7 @@ public:
 	Monster* generateMonster(int level);
 	void battle(Character* Player);
 	void displayInventory(Character* Player);
+	void reward(Character* Player, int exp);
+	int randNum(int min, int max);
 };
 #endif // !GAMEMANAGER_H

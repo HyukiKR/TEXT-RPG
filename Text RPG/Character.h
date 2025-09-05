@@ -48,6 +48,8 @@ public:
 	int getGold() const;
 
 	//set
+	void setExperience(int exp);
+	void setGold(int amount);
 	void takeDamage(int damage);
 };
 
