@@ -31,6 +31,12 @@
     <Filter Include="헤더 파일\몬스터 헤더 파일">
       <UniqueIdentifier>{5418c40e-c81b-4ce7-b9bd-2b29878888e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\인트로 소스 파일">
+      <UniqueIdentifier>{61f85b33-83b4-4a9a-b137-ab6f44d1f526}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\인트로 헤더 파일">
+      <UniqueIdentifier>{7e3d084c-3cfa-4d86-b573-7c8d1d16ea5d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -63,8 +69,11 @@
     <ClCompile Include="Alchemist.cpp">
       <Filter>소스 파일\캐릭터 소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Intro.cpp">
+      <Filter>소스 파일\인트로 소스 파일</Filter>
+    </ClCompile>
     <ClCompile Include="Pirate.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\캐릭터 소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +109,9 @@
     </ClInclude>
     <ClInclude Include="Farmer.h">
       <Filter>헤더 파일\캐릭터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Intro.h">
+      <Filter>헤더 파일\인트로 헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
