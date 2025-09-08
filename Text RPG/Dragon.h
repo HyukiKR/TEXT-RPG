@@ -1,17 +1,17 @@
 #pragma once
-#ifndef TROLL_H
-#define TROLL_H
+#ifndef DRAGON_H
+#define DRAGON_H
 
 #include "Monster.h"
 
-class Troll : public Monster {
+class Dragon : public Monster {
 private:
 	string name;
 	int health;
 	int attack;
 
 public:
-	Troll(int level);
+	Dragon(int level);
 	string getName();
 	int getHealth();
 	int getAttack();
@@ -19,4 +19,4 @@ public:
 	int randNum(int min, int max);
 };
 
-#endif 
+#endif

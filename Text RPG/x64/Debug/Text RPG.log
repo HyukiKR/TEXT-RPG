@@ -1,1 +1,219 @@
-﻿  Text RPG.vcxproj -> C:\Visual Studio\Text RPG\x64\Debug\Text RPG.exe
+﻿  GameManager.cpp
+  Goblin.cpp
+E:\Section\TEXT-RPG\Text RPG\GameManager.h(8,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
+  (소스 파일 'GameManager.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\GameManager.h(9,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
+  (소스 파일 'GameManager.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\GameManager.h(10,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
+  (소스 파일 'GameManager.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(23,14): error C2259: 'Goblin': 추상 클래스를 인스턴스화할 수 없습니다.
+      E:\Section\TEXT-RPG\Text RPG\Goblin.h(7,7):
+      'Goblin' 선언을 참조하십시오.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(23,14):
+      다음 멤버가 원인입니다.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(23,14):
+      'std::string Monster::getIntro(void) const': abstract입니다.
+      E:\Section\TEXT-RPG\Text RPG\Monster.h(19,17):
+      'Monster::getIntro' 선언을 참조하십시오.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(23,14):
+      'std::string Monster::getDeathLine(void) const': abstract입니다.
+      E:\Section\TEXT-RPG\Text RPG\Monster.h(20,17):
+      'Monster::getDeathLine' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(23,20): error C2259: 'Goblin': 추상 클래스를 인스턴스화할 수 없습니다.
+      E:\Section\TEXT-RPG\Text RPG\Goblin.h(7,7):
+      'Goblin' 선언을 참조하십시오.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(23,20):
+      다음 멤버가 원인입니다.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(23,20):
+      'std::string Monster::getIntro(void) const': abstract입니다.
+      E:\Section\TEXT-RPG\Text RPG\Monster.h(19,17):
+      'Monster::getIntro' 선언을 참조하십시오.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(23,20):
+      'std::string Monster::getDeathLine(void) const': abstract입니다.
+      E:\Section\TEXT-RPG\Text RPG\Monster.h(20,17):
+      'Monster::getDeathLine' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(25,14): error C2259: 'Troll': 추상 클래스를 인스턴스화할 수 없습니다.
+      E:\Section\TEXT-RPG\Text RPG\Troll.h(7,7):
+      'Troll' 선언을 참조하십시오.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(25,14):
+      다음 멤버가 원인입니다.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(25,14):
+      'std::string Monster::getIntro(void) const': abstract입니다.
+      E:\Section\TEXT-RPG\Text RPG\Monster.h(19,17):
+      'Monster::getIntro' 선언을 참조하십시오.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(25,14):
+      'std::string Monster::getDeathLine(void) const': abstract입니다.
+      E:\Section\TEXT-RPG\Text RPG\Monster.h(20,17):
+      'Monster::getDeathLine' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(25,19): error C2259: 'Troll': 추상 클래스를 인스턴스화할 수 없습니다.
+      E:\Section\TEXT-RPG\Text RPG\Troll.h(7,7):
+      'Troll' 선언을 참조하십시오.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(25,19):
+      다음 멤버가 원인입니다.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(25,19):
+      'std::string Monster::getIntro(void) const': abstract입니다.
+      E:\Section\TEXT-RPG\Text RPG\Monster.h(19,17):
+      'Monster::getIntro' 선언을 참조하십시오.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(25,19):
+      'std::string Monster::getDeathLine(void) const': abstract입니다.
+      E:\Section\TEXT-RPG\Text RPG\Monster.h(20,17):
+      'Monster::getDeathLine' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(27,14): error C2259: 'Orc': 추상 클래스를 인스턴스화할 수 없습니다.
+      E:\Section\TEXT-RPG\Text RPG\Orc.h(7,7):
+      'Orc' 선언을 참조하십시오.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(27,14):
+      다음 멤버가 원인입니다.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(27,14):
+      'std::string Monster::getIntro(void) const': abstract입니다.
+      E:\Section\TEXT-RPG\Text RPG\Monster.h(19,17):
+      'Monster::getIntro' 선언을 참조하십시오.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(27,14):
+      'std::string Monster::getDeathLine(void) const': abstract입니다.
+      E:\Section\TEXT-RPG\Text RPG\Monster.h(20,17):
+      'Monster::getDeathLine' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(27,17): error C2259: 'Orc': 추상 클래스를 인스턴스화할 수 없습니다.
+      E:\Section\TEXT-RPG\Text RPG\Orc.h(7,7):
+      'Orc' 선언을 참조하십시오.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(27,17):
+      다음 멤버가 원인입니다.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(27,17):
+      'std::string Monster::getIntro(void) const': abstract입니다.
+      E:\Section\TEXT-RPG\Text RPG\Monster.h(19,17):
+      'Monster::getIntro' 선언을 참조하십시오.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(27,17):
+      'std::string Monster::getDeathLine(void) const': abstract입니다.
+      E:\Section\TEXT-RPG\Text RPG\Monster.h(20,17):
+      'Monster::getDeathLine' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(29,14): error C2259: 'Slime': 추상 클래스를 인스턴스화할 수 없습니다.
+      E:\Section\TEXT-RPG\Text RPG\Slime.h(7,7):
+      'Slime' 선언을 참조하십시오.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(29,14):
+      다음 멤버가 원인입니다.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(29,14):
+      'std::string Monster::getIntro(void) const': abstract입니다.
+      E:\Section\TEXT-RPG\Text RPG\Monster.h(19,17):
+      'Monster::getIntro' 선언을 참조하십시오.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(29,14):
+      'std::string Monster::getDeathLine(void) const': abstract입니다.
+      E:\Section\TEXT-RPG\Text RPG\Monster.h(20,17):
+      'Monster::getDeathLine' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(29,19): error C2259: 'Slime': 추상 클래스를 인스턴스화할 수 없습니다.
+      E:\Section\TEXT-RPG\Text RPG\Slime.h(7,7):
+      'Slime' 선언을 참조하십시오.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(29,19):
+      다음 멤버가 원인입니다.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(29,19):
+      'std::string Monster::getIntro(void) const': abstract입니다.
+      E:\Section\TEXT-RPG\Text RPG\Monster.h(19,17):
+      'Monster::getIntro' 선언을 참조하십시오.
+      E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(29,19):
+      'std::string Monster::getDeathLine(void) const': abstract입니다.
+      E:\Section\TEXT-RPG\Text RPG\Monster.h(20,17):
+      'Monster::getDeathLine' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Goblin.cpp(31,16): error C2509: 'getIntro': 멤버 함수를 'Goblin'에서 선언하지 않았습니다.
+      E:\Section\TEXT-RPG\Text RPG\Goblin.h(7,7):
+      'Goblin' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Goblin.cpp(34,16): error C2039: 'getAttackDeathLine': 'Goblin'의 멤버가 아닙니다.
+      E:\Section\TEXT-RPG\Text RPG\Goblin.h(7,7):
+      'Goblin' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Goblin.cpp(34,16): error C2270: 'getAttackDeathLine': 비멤버 함수에 한정자를 사용할 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Goblin.cpp(36,1): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
+  main.cpp
+E:\Section\TEXT-RPG\Text RPG\GameManager.h(8,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
+  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\GameManager.h(9,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
+  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\GameManager.h(10,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
+  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
+  
+  Orc.cpp
+E:\Section\TEXT-RPG\Text RPG\Orc.cpp(31,13): error C2509: 'getIntro': 멤버 함수를 'Orc'에서 선언하지 않았습니다.
+      E:\Section\TEXT-RPG\Text RPG\Orc.h(7,7):
+      'Orc' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Orc.cpp(34,13): error C2509: 'getDeathLine': 멤버 함수를 'Orc'에서 선언하지 않았습니다.
+      E:\Section\TEXT-RPG\Text RPG\Orc.h(7,7):
+      'Orc' 선언을 참조하십시오.
+  
+  Slime.cpp
+E:\Section\TEXT-RPG\Text RPG\Slime.cpp(31,8): error C2653: 'slime': 클래스 또는 네임스페이스 이름이 아닙니다.
+E:\Section\TEXT-RPG\Text RPG\Slime.cpp(31,15): error C2270: 'getIntro': 비멤버 함수에 한정자를 사용할 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Slime.cpp(33,1): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Slime.cpp(34,8): error C2653: 'slime': 클래스 또는 네임스페이스 이름이 아닙니다.
+E:\Section\TEXT-RPG\Text RPG\Slime.cpp(34,15): error C2270: 'getDeathLine': 비멤버 함수에 한정자를 사용할 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Slime.cpp(36,1): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
+  Troll.cpp
+E:\Section\TEXT-RPG\Text RPG\Troll.cpp(31,15): error C2509: 'getIntro': 멤버 함수를 'Troll'에서 선언하지 않았습니다.
+      E:\Section\TEXT-RPG\Text RPG\Troll.h(7,7):
+      'Troll' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Troll.cpp(34,15): error C2509: 'getDeathLine': 멤버 함수를 'Troll'에서 선언하지 않았습니다.
+      E:\Section\TEXT-RPG\Text RPG\Troll.h(7,7):
+      'Troll' 선언을 참조하십시오.
+  
+  Dragon.cpp
+E:\Section\TEXT-RPG\Text RPG\Dragon.cpp(7,35): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Section\TEXT-RPG\Text RPG\Dragon.cpp(8,34): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Section\TEXT-RPG\Text RPG\Dragon.cpp(30,16): error C2509: 'getIntro': 멤버 함수를 'Dragon'에서 선언하지 않았습니다.
+      E:\Section\TEXT-RPG\Text RPG\Dragon.h(7,7):
+      'Dragon' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Dragon.cpp(32,16): error C2509: 'getDeathLine': 멤버 함수를 'Dragon'에서 선언하지 않았습니다.
+      E:\Section\TEXT-RPG\Text RPG\Dragon.h(7,7):
+      'Dragon' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Dragon.cpp(35,1): error C2059: 구문 오류: '}'
+E:\Section\TEXT-RPG\Text RPG\Dragon.cpp(35,1): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Dragon.cpp(36,37): error C2143: 구문 오류: ';'이(가) '{' 앞에 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Dragon.cpp(36,37): error C2447: '{': 함수 헤더가 없습니다. 이전 스타일의 형식 목록입니까?
+  소스.cpp
+E:\Section\TEXT-RPG\Text RPG\소스.cpp(14,38): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Section\TEXT-RPG\Text RPG\소스.cpp(15,37): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Section\TEXT-RPG\Text RPG\소스.cpp(18,19): error C2511: 'std::string DemonLord::getName(void) const': 오버로드된 멤버 함수가 'DemonLord'에 없습니다.
+      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(9,7):
+      'DemonLord' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\소스.cpp(19,12): error C2597: 비정적 멤버 'DemonLord::name'에 대한 참조가 잘못되었습니다.
+      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(11,12):
+      'DemonLord::name' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\소스.cpp(21,16): error C2511: 'int DemonLord::getHealth(void) const': 오버로드된 멤버 함수가 'DemonLord'에 없습니다.
+      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(9,7):
+      'DemonLord' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\소스.cpp(22,12): error C2597: 비정적 멤버 'DemonLord::health'에 대한 참조가 잘못되었습니다.
+      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(12,9):
+      'DemonLord::health' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\소스.cpp(24,16): error C2511: 'int DemonLord::getAttack(void) const': 오버로드된 멤버 함수가 'DemonLord'에 없습니다.
+      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(9,7):
+      'DemonLord' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\소스.cpp(25,12): error C2597: 비정적 멤버 'DemonLord::attack'에 대한 참조가 잘못되었습니다.
+      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(13,9):
+      'DemonLord::attack' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\소스.cpp(28,19): error C2509: 'getIntro': 멤버 함수를 'DemonLord'에서 선언하지 않았습니다.
+      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(9,7):
+      'DemonLord' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\소스.cpp(32,19): error C2509: 'getDeathLine': 멤버 함수를 'DemonLord'에서 선언하지 않았습니다.
+      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(9,7):
+      'DemonLord' 선언을 참조하십시오.
+  
+  코드를 생성하고 있습니다...

@@ -1,17 +1,17 @@
 #pragma once
-#ifndef TROLL_H
-#define TROLL_H
+#ifndef Wolf_H
+#define Wolf_H
 
 #include "Monster.h"
 
-class Troll : public Monster {
+class Wolf : public Monster {
 private:
 	string name;
 	int health;
 	int attack;
 
 public:
-	Troll(int level);
+	Wolf(int level);
 	string getName();
 	int getHealth();
 	int getAttack();

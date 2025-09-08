@@ -28,6 +28,13 @@ int Troll::randNum(int min, int max) {
 	return dist(gen);
 }
 
+string Troll::getIntro() const {
+	return "트롤왕이 나가신다 길을 비켜라"
+}
+string Troll::getDeathLine() const {
+	return "내가 트롤왕인데..."
+}
+
 void Troll::takeDamage(int damage) {
 	health -= damage;
 	if (health < 0)

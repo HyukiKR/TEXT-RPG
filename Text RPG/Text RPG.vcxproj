@@ -130,6 +130,8 @@
     <ClCompile Include="Orc.cpp" />
     <ClCompile Include="Slime.cpp" />
     <ClCompile Include="Troll.cpp" />
+    <ClCompile Include="Dragon.cpp" />
+    <ClCompile Include="소스.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h" />
@@ -139,6 +141,8 @@
     <ClInclude Include="Orc.h" />
     <ClInclude Include="Slime.h" />
     <ClInclude Include="Troll.h" />
+    <ClInclude Include="Dragon.h" />
+    <ClInclude Include="DemonLord.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

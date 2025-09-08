@@ -28,6 +28,13 @@ int Goblin::randNum(int min, int max) {
 	return dist(gen);
 }
 
+string Goblin::getIntro() const {
+	return "Å±Å± µ·³»³ö¶ó ÀÎ°£"
+}
+string Goblin::getAttackDeathLine() const {
+	return "³¢ÀÍ.. ³ª Á×´Â´Ù"
+}
+
 void Goblin::takeDamage(int damage) {
 	health -= damage;
 	if (health < 0)

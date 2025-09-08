@@ -28,6 +28,13 @@ int Slime::randNum(int min, int max) {
 	return dist(gen);
 }
 
+string slime::getIntro() const {
+	return " 스물스물.."
+}
+string slime::getDeathLine() const {
+	return "취이익.. 증발해버렸다"
+}
+
 void Slime::takeDamage(int damage) {
 	health -= damage;
 	if (health < 0)
