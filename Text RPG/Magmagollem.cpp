@@ -42,3 +42,4 @@ void  magmagollem::takeDamage(int damage) {
 		health = 0;
 	}
 }
+
