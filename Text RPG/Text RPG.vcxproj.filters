@@ -54,16 +54,7 @@
     <ClCompile Include="GameManager.cpp">
       <Filter>소스 파일\게임매니저 소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Knight.cpp">
-      <Filter>소스 파일\캐릭터 소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Farmer.cpp">
-      <Filter>소스 파일\캐릭터 소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Alchemist.cpp">
-      <Filter>소스 파일\캐릭터 소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Pirate.cpp">
+    <ClCompile Include="Intro.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -89,17 +80,8 @@
     <ClInclude Include="GameManager.h">
       <Filter>헤더 파일\게임매니저 헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Knight.h">
-      <Filter>헤더 파일\캐릭터 헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Alchemist.h">
-      <Filter>헤더 파일\캐릭터 헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Pirate.h">
-      <Filter>헤더 파일\캐릭터 헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Farmer.h">
-      <Filter>헤더 파일\캐릭터 헤더 파일</Filter>
+    <ClInclude Include="Intro.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
