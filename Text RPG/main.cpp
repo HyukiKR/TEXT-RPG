@@ -5,6 +5,7 @@
 #include "Alchemist.h"
 #include "Pirate.h"
 #include "Farmer.h"
+#include "Intro.h"
 
 using namespace std;
 
@@ -16,6 +17,7 @@ int main()
 	GameManager gameManager;
 	Monster* monster = nullptr;
 
+    Intro().displayIntro(); //인트로 화면 출력
 
 	cout << "캐릭터 이름을 입력하세요: ";
 	string name;
