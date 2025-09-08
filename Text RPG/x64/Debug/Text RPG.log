@@ -1,5 +1,4 @@
 ﻿  GameManager.cpp
-  Goblin.cpp
 E:\Section\TEXT-RPG\Text RPG\GameManager.h(8,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
   (소스 파일 'GameManager.cpp'을(를) 컴파일하는 중)
   
@@ -121,6 +120,7 @@ E:\Section\TEXT-RPG\Text RPG\GameManager.cpp(29,19): error C2259: 'Slime': 추�
       E:\Section\TEXT-RPG\Text RPG\Monster.h(20,17):
       'Monster::getDeathLine' 선언을 참조하십시오.
   
+  Goblin.cpp
 E:\Section\TEXT-RPG\Text RPG\Goblin.cpp(31,16): error C2509: 'getIntro': 멤버 함수를 'Goblin'에서 선언하지 않았습니다.
       E:\Section\TEXT-RPG\Text RPG\Goblin.h(7,7):
       'Goblin' 선언을 참조하십시오.
@@ -131,16 +131,6 @@ E:\Section\TEXT-RPG\Text RPG\Goblin.cpp(34,16): error C2039: 'getAttackDeathLine
   
 E:\Section\TEXT-RPG\Text RPG\Goblin.cpp(34,16): error C2270: 'getAttackDeathLine': 비멤버 함수에 한정자를 사용할 수 없습니다.
 E:\Section\TEXT-RPG\Text RPG\Goblin.cpp(36,1): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
-  main.cpp
-E:\Section\TEXT-RPG\Text RPG\GameManager.h(8,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-E:\Section\TEXT-RPG\Text RPG\GameManager.h(9,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
-E:\Section\TEXT-RPG\Text RPG\GameManager.h(10,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
-  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  
   Orc.cpp
 E:\Section\TEXT-RPG\Text RPG\Orc.cpp(31,13): error C2509: 'getIntro': 멤버 함수를 'Orc'에서 선언하지 않았습니다.
       E:\Section\TEXT-RPG\Text RPG\Orc.h(7,7):
@@ -181,39 +171,281 @@ E:\Section\TEXT-RPG\Text RPG\Dragon.cpp(35,1): error C2059: 구문 오류: '}'
 E:\Section\TEXT-RPG\Text RPG\Dragon.cpp(35,1): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
 E:\Section\TEXT-RPG\Text RPG\Dragon.cpp(36,37): error C2143: 구문 오류: ';'이(가) '{' 앞에 없습니다.
 E:\Section\TEXT-RPG\Text RPG\Dragon.cpp(36,37): error C2447: '{': 함수 헤더가 없습니다. 이전 스타일의 형식 목록입니까?
-  소스.cpp
-E:\Section\TEXT-RPG\Text RPG\소스.cpp(14,38): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\Section\TEXT-RPG\Text RPG\소스.cpp(15,37): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-E:\Section\TEXT-RPG\Text RPG\소스.cpp(18,19): error C2511: 'std::string DemonLord::getName(void) const': 오버로드된 멤버 함수가 'DemonLord'에 없습니다.
-      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(9,7):
+  DemonLord.cpp
+E:\Section\TEXT-RPG\Text RPG\DemonLord.cpp(14,38): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Section\TEXT-RPG\Text RPG\DemonLord.cpp(15,37): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Section\TEXT-RPG\Text RPG\DemonLord.cpp(18,19): error C2511: 'std::string DemonLord::getName(void) const': 오버로드된 멤버 함수가 'DemonLord'에 없습니다.
+      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(7,7):
       'DemonLord' 선언을 참조하십시오.
   
-E:\Section\TEXT-RPG\Text RPG\소스.cpp(19,12): error C2597: 비정적 멤버 'DemonLord::name'에 대한 참조가 잘못되었습니다.
-      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(11,12):
+E:\Section\TEXT-RPG\Text RPG\DemonLord.cpp(19,12): error C2597: 비정적 멤버 'DemonLord::name'에 대한 참조가 잘못되었습니다.
+      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(9,12):
       'DemonLord::name' 선언을 참조하십시오.
   
-E:\Section\TEXT-RPG\Text RPG\소스.cpp(21,16): error C2511: 'int DemonLord::getHealth(void) const': 오버로드된 멤버 함수가 'DemonLord'에 없습니다.
-      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(9,7):
+E:\Section\TEXT-RPG\Text RPG\DemonLord.cpp(21,16): error C2511: 'int DemonLord::getHealth(void) const': 오버로드된 멤버 함수가 'DemonLord'에 없습니다.
+      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(7,7):
       'DemonLord' 선언을 참조하십시오.
   
-E:\Section\TEXT-RPG\Text RPG\소스.cpp(22,12): error C2597: 비정적 멤버 'DemonLord::health'에 대한 참조가 잘못되었습니다.
-      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(12,9):
+E:\Section\TEXT-RPG\Text RPG\DemonLord.cpp(22,12): error C2597: 비정적 멤버 'DemonLord::health'에 대한 참조가 잘못되었습니다.
+      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(10,9):
       'DemonLord::health' 선언을 참조하십시오.
   
-E:\Section\TEXT-RPG\Text RPG\소스.cpp(24,16): error C2511: 'int DemonLord::getAttack(void) const': 오버로드된 멤버 함수가 'DemonLord'에 없습니다.
-      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(9,7):
+E:\Section\TEXT-RPG\Text RPG\DemonLord.cpp(24,16): error C2511: 'int DemonLord::getAttack(void) const': 오버로드된 멤버 함수가 'DemonLord'에 없습니다.
+      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(7,7):
       'DemonLord' 선언을 참조하십시오.
   
-E:\Section\TEXT-RPG\Text RPG\소스.cpp(25,12): error C2597: 비정적 멤버 'DemonLord::attack'에 대한 참조가 잘못되었습니다.
-      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(13,9):
+E:\Section\TEXT-RPG\Text RPG\DemonLord.cpp(25,12): error C2597: 비정적 멤버 'DemonLord::attack'에 대한 참조가 잘못되었습니다.
+      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(11,9):
       'DemonLord::attack' 선언을 참조하십시오.
   
-E:\Section\TEXT-RPG\Text RPG\소스.cpp(28,19): error C2509: 'getIntro': 멤버 함수를 'DemonLord'에서 선언하지 않았습니다.
-      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(9,7):
+E:\Section\TEXT-RPG\Text RPG\DemonLord.cpp(28,19): error C2509: 'getIntro': 멤버 함수를 'DemonLord'에서 선언하지 않았습니다.
+      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(7,7):
       'DemonLord' 선언을 참조하십시오.
   
-E:\Section\TEXT-RPG\Text RPG\소스.cpp(32,19): error C2509: 'getDeathLine': 멤버 함수를 'DemonLord'에서 선언하지 않았습니다.
-      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(9,7):
+E:\Section\TEXT-RPG\Text RPG\DemonLord.cpp(32,19): error C2509: 'getDeathLine': 멤버 함수를 'DemonLord'에서 선언하지 않았습니다.
+      E:\Section\TEXT-RPG\Text RPG\DemonLord.h(7,7):
       'DemonLord' 선언을 참조하십시오.
   
+  Imp.cpp
+E:\Section\TEXT-RPG\Text RPG\Imp.cpp(17,13): error C2511: 'std::string Imp::getName(void) const': 오버로드된 멤버 함수가 'Imp'에 없습니다.
+      E:\Section\TEXT-RPG\Text RPG\Imp.h(7,7):
+      'Imp' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Imp.cpp(18,12): error C2597: 비정적 멤버 'Imp::name'에 대한 참조가 잘못되었습니다.
+      E:\Section\TEXT-RPG\Text RPG\Imp.h(9,9):
+      'Imp::name' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Imp.cpp(20,10): error C2511: 'int Imp::getHealth(void) const': 오버로드된 멤버 함수가 'Imp'에 없습니다.
+      E:\Section\TEXT-RPG\Text RPG\Imp.h(7,7):
+      'Imp' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Imp.cpp(21,12): error C2597: 비정적 멤버 'Imp::health'에 대한 참조가 잘못되었습니다.
+      E:\Section\TEXT-RPG\Text RPG\Imp.h(10,6):
+      'Imp::health' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Imp.cpp(23,10): error C2511: 'int Imp::getAttack(void) const': 오버로드된 멤버 함수가 'Imp'에 없습니다.
+      E:\Section\TEXT-RPG\Text RPG\Imp.h(7,7):
+      'Imp' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Imp.cpp(24,12): error C2597: 비정적 멤버 'Imp::attack'에 대한 참조가 잘못되었습니다.
+      E:\Section\TEXT-RPG\Text RPG\Imp.h(11,6):
+      'Imp::attack' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Imp.cpp(27,13): error C2509: 'getIntro': 멤버 함수를 'Imp'에서 선언하지 않았습니다.
+      E:\Section\TEXT-RPG\Text RPG\Imp.h(7,7):
+      'Imp' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Imp.cpp(31,13): error C2509: 'getDeathLine': 멤버 함수를 'Imp'에서 선언하지 않았습니다.
+      E:\Section\TEXT-RPG\Text RPG\Imp.h(7,7):
+      'Imp' 선언을 참조하십시오.
+  
+  Wolf.cpp
+E:\Section\TEXT-RPG\Text RPG\Wolf.cpp(31,14): error C2509: 'getIntro': 멤버 함수를 'Wolf'에서 선언하지 않았습니다.
+      E:\Section\TEXT-RPG\Text RPG\Wolf.h(7,7):
+      'Wolf' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Wolf.cpp(34,14): error C2509: 'getDeathLine': 멤버 함수를 'Wolf'에서 선언하지 않았습니다.
+      E:\Section\TEXT-RPG\Text RPG\Wolf.h(7,7):
+      'Wolf' 선언을 참조하십시오.
+  
+  SkeletonWarrior.cpp
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.h(8,32): error C2504: 'Monster': 기본 클래스를 정의하지 않았습니다.
+  (소스 파일 'SkeletonWarrior.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.h(10,9): error C3646: 'name': 알 수 없는 재정의 지정자입니다.
+  (소스 파일 'SkeletonWarrior.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.h(10,13): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+  (소스 파일 'SkeletonWarrior.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.h(16,9): error C3646: 'getName': 알 수 없는 재정의 지정자입니다.
+  (소스 파일 'SkeletonWarrior.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.h(16,16): error C2059: 구문 오류: '('
+  (소스 파일 'SkeletonWarrior.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.h(16,18): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
+  (소스 파일 'SkeletonWarrior.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(7,2): error C2065: 'name': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(8,35): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(9,34): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(12,25): error C2039: 'getName': 'SkeletonWarrior'의 멤버가 아닙니다.
+      E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.h(8,7):
+      'SkeletonWarrior' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(13,9): error C2065: 'name': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(25,2): error C2065: 'random_device': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(25,16): error C2146: 구문 오류: ';'이(가) 'rd' 식별자 앞에 없습니다.
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(25,16): error C2065: 'rd': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(26,2): error C2065: 'mt19937': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(26,10): error C2146: 구문 오류: ';'이(가) 'gen' 식별자 앞에 없습니다.
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(26,14): error C3861: 'rd': 식별자를 찾을 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(26,10): error C3861: 'gen': 식별자를 찾을 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(27,2): error C2065: 'uniform_int_distribution': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(27,27): error C2062: 예기치 않은 'int' 형식입니다.
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(28,14): error C2065: 'gen': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(28,9): error C3861: 'dist': 식별자를 찾을 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(31,25): error C2039: 'getIntro': 'SkeletonWarrior'의 멤버가 아닙니다.
+      E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.h(8,7):
+      'SkeletonWarrior' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(31,25): error C2270: 'getIntro': 비멤버 함수에 한정자를 사용할 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(33,1): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(34,25): error C2039: 'getAttackDeathLine': 'SkeletonWarrior'의 멤버가 아닙니다.
+      E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.h(8,7):
+      'SkeletonWarrior' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(34,25): error C2270: 'getAttackDeathLine': 비멤버 함수에 한정자를 사용할 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\SkeletonWarrior.cpp(36,1): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
+  Zombie.cpp
+E:\Section\TEXT-RPG\Text RPG\Zombie.h(8,23): error C2504: 'Monster': 기본 클래스를 정의하지 않았습니다.
+  (소스 파일 'Zombie.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\Zombie.h(10,9): error C3646: 'name': 알 수 없는 재정의 지정자입니다.
+  (소스 파일 'Zombie.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\Zombie.h(10,13): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+  (소스 파일 'Zombie.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\Zombie.h(16,9): error C3646: 'getName': 알 수 없는 재정의 지정자입니다.
+  (소스 파일 'Zombie.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\Zombie.h(16,16): error C2059: 구문 오류: '('
+  (소스 파일 'Zombie.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\Zombie.h(16,18): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
+  (소스 파일 'Zombie.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(7,2): error C2065: 'name': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(8,35): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(9,34): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(12,16): error C2039: 'getName': 'Zombie'의 멤버가 아닙니다.
+      E:\Section\TEXT-RPG\Text RPG\Zombie.h(8,7):
+      'Zombie' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(13,9): error C2065: 'name': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(25,2): error C2065: 'random_device': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(25,16): error C2146: 구문 오류: ';'이(가) 'rd' 식별자 앞에 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(25,16): error C2065: 'rd': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(26,2): error C2065: 'mt19937': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(26,10): error C2146: 구문 오류: ';'이(가) 'gen' 식별자 앞에 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(26,14): error C3861: 'rd': 식별자를 찾을 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(26,10): error C3861: 'gen': 식별자를 찾을 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(27,2): error C2065: 'uniform_int_distribution': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(27,27): error C2062: 예기치 않은 'int' 형식입니다.
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(28,14): error C2065: 'gen': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(28,9): error C3861: 'dist': 식별자를 찾을 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(31,16): error C2039: 'getIntro': 'Zombie'의 멤버가 아닙니다.
+      E:\Section\TEXT-RPG\Text RPG\Zombie.h(8,7):
+      'Zombie' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(31,16): error C2270: 'getIntro': 비멤버 함수에 한정자를 사용할 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(33,1): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(34,16): error C2039: 'getAttackDeathLine': 'Zombie'의 멤버가 아닙니다.
+      E:\Section\TEXT-RPG\Text RPG\Zombie.h(8,7):
+      'Zombie' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(34,16): error C2270: 'getAttackDeathLine': 비멤버 함수에 한정자를 사용할 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Zombie.cpp(36,1): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
+  Lizardmen.cpp
+E:\Section\TEXT-RPG\Text RPG\lizardmen.h(8,26): error C2504: 'Monster': 기본 클래스를 정의하지 않았습니다.
+  (소스 파일 'Lizardmen.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\lizardmen.h(10,9): error C3646: 'name': 알 수 없는 재정의 지정자입니다.
+  (소스 파일 'Lizardmen.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\lizardmen.h(10,13): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+  (소스 파일 'Lizardmen.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\lizardmen.h(16,9): error C3646: 'getName': 알 수 없는 재정의 지정자입니다.
+  (소스 파일 'Lizardmen.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\lizardmen.h(16,16): error C2059: 구문 오류: '('
+  (소스 파일 'Lizardmen.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\lizardmen.h(16,18): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
+  (소스 파일 'Lizardmen.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(7,2): error C2065: 'name': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(8,35): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(9,34): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(12,19): error C2039: 'getName': 'lizardmen'의 멤버가 아닙니다.
+      E:\Section\TEXT-RPG\Text RPG\lizardmen.h(8,7):
+      'lizardmen' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(13,9): error C2065: 'name': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(25,2): error C2065: 'random_device': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(25,16): error C2146: 구문 오류: ';'이(가) 'rd' 식별자 앞에 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(25,16): error C2065: 'rd': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(26,2): error C2065: 'mt19937': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(26,10): error C2146: 구문 오류: ';'이(가) 'gen' 식별자 앞에 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(26,14): error C3861: 'rd': 식별자를 찾을 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(26,10): error C3861: 'gen': 식별자를 찾을 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(27,2): error C2065: 'uniform_int_distribution': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(27,27): error C2062: 예기치 않은 'int' 형식입니다.
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(28,14): error C2065: 'gen': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(28,9): error C3861: 'dist': 식별자를 찾을 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(31,19): error C2039: 'getIntro': 'lizardmen'의 멤버가 아닙니다.
+      E:\Section\TEXT-RPG\Text RPG\lizardmen.h(8,7):
+      'lizardmen' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(31,19): error C2270: 'getIntro': 비멤버 함수에 한정자를 사용할 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(33,1): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(34,19): error C2039: 'getAttackDeathLine': 'lizardmen'의 멤버가 아닙니다.
+      E:\Section\TEXT-RPG\Text RPG\lizardmen.h(8,7):
+      'lizardmen' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(34,19): error C2270: 'getAttackDeathLine': 비멤버 함수에 한정자를 사용할 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Lizardmen.cpp(36,1): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
+  Magmagollem.cpp
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.h(7,28): error C2504: 'Monster': 기본 클래스를 정의하지 않았습니다.
+  (소스 파일 'Magmagollem.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.h(9,9): error C3646: 'name': 알 수 없는 재정의 지정자입니다.
+  (소스 파일 'Magmagollem.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.h(9,13): error C4430: 형식 지정자가 없습니다. int로 가정합니다. 참고: C++에서는 기본 int를 지원하지 않습니다.
+  (소스 파일 'Magmagollem.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.h(15,9): error C3646: 'getName': 알 수 없는 재정의 지정자입니다.
+  (소스 파일 'Magmagollem.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.h(15,16): error C2059: 구문 오류: '('
+  (소스 파일 'Magmagollem.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.h(15,18): error C2238: ';' 앞에 예기치 않은 토큰이 있습니다.
+  (소스 파일 'Magmagollem.cpp'을(를) 컴파일하는 중)
+  
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(7,2): error C2065: 'name': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(8,35): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(9,34): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(12,21): error C2039: 'getName': 'Magmagollem'의 멤버가 아닙니다.
+      E:\Section\TEXT-RPG\Text RPG\Magmagollem.h(7,7):
+      'Magmagollem' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(13,9): error C2065: 'name': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(25,2): error C2065: 'random_device': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(25,16): error C2146: 구문 오류: ';'이(가) 'rd' 식별자 앞에 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(25,16): error C2065: 'rd': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(26,2): error C2065: 'mt19937': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(26,10): error C2146: 구문 오류: ';'이(가) 'gen' 식별자 앞에 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(26,14): error C3861: 'rd': 식별자를 찾을 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(26,10): error C3861: 'gen': 식별자를 찾을 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(27,2): error C2065: 'uniform_int_distribution': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(27,27): error C2062: 예기치 않은 'int' 형식입니다.
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(28,14): error C2065: 'gen': 선언되지 않은 식별자입니다.
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(28,9): error C3861: 'dist': 식별자를 찾을 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(31,21): error C2039: 'getIntro': 'Magmagollem'의 멤버가 아닙니다.
+      E:\Section\TEXT-RPG\Text RPG\Magmagollem.h(7,7):
+      'Magmagollem' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(31,21): error C2270: 'getIntro': 비멤버 함수에 한정자를 사용할 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(33,1): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(34,21): error C2039: 'getAttackDeathLine': 'Magmagollem'의 멤버가 아닙니다.
+      E:\Section\TEXT-RPG\Text RPG\Magmagollem.h(7,7):
+      'Magmagollem' 선언을 참조하십시오.
+  
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(34,21): error C2270: 'getAttackDeathLine': 비멤버 함수에 한정자를 사용할 수 없습니다.
+E:\Section\TEXT-RPG\Text RPG\Magmagollem.cpp(36,1): error C2143: 구문 오류: ';'이(가) '}' 앞에 없습니다.
   코드를 생성하고 있습니다...

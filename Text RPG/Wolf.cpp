@@ -13,15 +13,15 @@ string Wolf::getName() {
 	return name;
 }
 
-int Troll::getHealth() {
+int Wolf::getHealth() {
 	return health;
 }
 
-int Troll::getAttack() {
+int Wolf::getAttack() {
 	return attack;
 }
 
-int Troll::randNum(int min, int max) {
+int Wolf::randNum(int min, int max) {
 	random_device rd;
 	mt19937 gen(rd());
 	uniform_int_distribution<int> dist(min, max);
@@ -35,7 +35,7 @@ string Wolf::getDeathLine() const {
 	return "³¢³©.. ³¢À×.."
 }
 
-void Troll::takeDamage(int damage) {
+void Wolf::takeDamage(int damage) {
 	health -= damage;
 	if (health < 0)
 	{

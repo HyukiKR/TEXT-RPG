@@ -1,45 +1,44 @@
 #include <iostream>
-#include "magmagollem.h"
+#include "Magmagollem.h"
 
 using namespace std;
 
-magmagollem::magmagollem(int level) {
-	name = "magmagollem";
+Magmagollem::Magmagollem(int level) {
+	name = "Magmagollem";
 	health = level * randNum(20, 30) * 1.4;
 	attack = level * randNum(5, 10) * 1.4;
 }
 
-string magmagollem::getName() {
+string Magmagollem::getName() {
 	return name;
 }
 
-int magmagollem::getHealth() {
+int Magmagollem::getHealth() {
 	return health;
 }
 
-int magmagollem::getAttack() {
+int Magmagollem::getAttack() {
 	return attack;
 }
 
-int magmagollem::randNum(int min, int max) {
+int Magmagollem::randNum(int min, int max) {
 	random_device rd;
 	mt19937 gen(rd());
 	uniform_int_distribution<int> dist(min, max);
 	return dist(gen);
 }
 
-string magmagollem::getIntro() const {
+string Magmagollem::getIntro() const {
 	return "...."
 }
-string magmagollem::getAttackDeathLine() const {
+string Magmagollem::getAttackDeathLine() const {
 	return "(바위가 부셔시며 핵만 남았다.)"
 }
 
-void  magmagollem::takeDamage(int damage) {
+void  Magmagollem::takeDamage(int damage) {
 	health -= damage;
 	if (health < 0)
 	{
 		health = 0;
 	}
 }
-

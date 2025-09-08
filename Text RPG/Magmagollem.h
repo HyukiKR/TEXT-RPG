@@ -1,17 +1,17 @@
 #pragma once
-#ifndef magmagollem_H
-#define magmagollem_H
+#ifndef Magmagollem_H
+#define Magmagollem_H
 
-#include "magmagollem.h"
+#include "Magmagollem.h"
 
-class magmagollem : public Monster {
+class Magmagollem : public Monster {
 private:
 	string name;
 	int health;
 	int attack;
 
 public:
-	magmagollem(int level);
+	Magmagollem(int level);
 	string getName();
 	int getHealth();
 	int getAttack();
