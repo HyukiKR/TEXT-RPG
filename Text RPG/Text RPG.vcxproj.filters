@@ -57,7 +57,25 @@
     <ClCompile Include="Dragon.cpp">
       <Filter>소스 파일\몬스터 소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="소스.cpp">
+    <ClCompile Include="DemonLord.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Imp.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Wolf.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonWarrior.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Zombie.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Lizardmen.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Magmagollem.cpp">
       <Filter>소스 파일\몬스터 소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -87,6 +105,24 @@
       <Filter>헤더 파일\몬스터 헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="DemonLord.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Imp.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Wolf.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SkeletonWarrior.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Zombie.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Lizardmen.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Magmagollem.h">
       <Filter>헤더 파일\몬스터 헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

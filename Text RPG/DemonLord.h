@@ -4,8 +4,6 @@
 
 #include "Monster.h"
 
-using namespace std;
-
 class DemonLord : public Monster {
 private:
     string name;
