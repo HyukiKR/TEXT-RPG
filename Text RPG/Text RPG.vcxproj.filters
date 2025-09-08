@@ -54,17 +54,29 @@
     <ClCompile Include="GameManager.cpp">
       <Filter>소스 파일\게임매니저 소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Knight.cpp">
-      <Filter>소스 파일\캐릭터 소스 파일</Filter>
+    <ClCompile Include="Dragon.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Farmer.cpp">
-      <Filter>소스 파일\캐릭터 소스 파일</Filter>
+    <ClCompile Include="DemonLord.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Alchemist.cpp">
-      <Filter>소스 파일\캐릭터 소스 파일</Filter>
+    <ClCompile Include="Imp.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Pirate.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="Wolf.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonWarrior.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Zombie.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Lizardmen.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Magmagollem.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -89,17 +101,29 @@
     <ClInclude Include="GameManager.h">
       <Filter>헤더 파일\게임매니저 헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Knight.h">
-      <Filter>헤더 파일\캐릭터 헤더 파일</Filter>
+    <ClInclude Include="Dragon.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Alchemist.h">
-      <Filter>헤더 파일\캐릭터 헤더 파일</Filter>
+    <ClInclude Include="DemonLord.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Pirate.h">
-      <Filter>헤더 파일\캐릭터 헤더 파일</Filter>
+    <ClInclude Include="Imp.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Farmer.h">
-      <Filter>헤더 파일\캐릭터 헤더 파일</Filter>
+    <ClInclude Include="Wolf.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SkeletonWarrior.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Zombie.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Lizardmen.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Magmagollem.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -5,17 +5,14 @@
 #include "Character.h"
 #include "Monster.h"
 #include "Goblin.h"
-#include "Troll.h"
-#include "Orc.h"
-#include "Slime.h"
-#include <vector>
+#include "Troll.h";
+#include "Orc.h";
+#include "Slime.h";
 
-class GameManager {
+class GameManager{
 public:
 	Monster* generateMonster(int level);
-	std::vector<Monster*> generateMultipleMonsters(int playerLevel);  // 추가
 	void battle(Character* Player);
-	void multiBattle(Character* Player, std::vector<Monster*>& monsters);  // 추가
 	void displayInventory(Character* Player);
 	void reward(Character* Player, int exp);
 	int randNum(int min, int max);

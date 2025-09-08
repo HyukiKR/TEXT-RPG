@@ -1,17 +1,17 @@
 #pragma once
-#ifndef SLIME_H
-#define SLIME_H
+#ifndef Wolf_H
+#define Wolf_H
 
 #include "Monster.h"
 
-class Slime : public Monster {
+class Wolf : public Monster {
 private:
 	string name;
 	int health;
 	int attack;
 
 public:
-	Slime(int level);
+	Wolf(int level);
 	string getName();
 	int getHealth();
 	int getAttack();
@@ -22,4 +22,4 @@ public:
 	std::string getDeathLine() const override;
 };
 
-#endif // !SLIME_H
+#endif 

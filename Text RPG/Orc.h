@@ -17,6 +17,9 @@ public:
 	int getAttack();
 	void takeDamage(int damage);
 	int randNum(int min, int max);
+
+	std::string getIntro() const override;
+	std::string getDeathLine() const override;
 };
 
 #endif // !ORC_H
