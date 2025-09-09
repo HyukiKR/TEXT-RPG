@@ -4,5 +4,6 @@
 class Farmer : public Character {
 public:
     Farmer(string t_name);
+    void passiveSkill() override;
 };
 
