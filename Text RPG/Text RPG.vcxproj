@@ -129,14 +129,12 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Goblin.cpp" />
     <ClCompile Include="Intro.cpp" />
-    <ClCompile Include="inventory.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemFactory.cpp" />
     <ClCompile Include="Knight.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Orc.cpp" />
     <ClCompile Include="Pirate.cpp" />
-    <ClCompile Include="shop.cpp" />
     <ClCompile Include="Slime.cpp" />
     <ClCompile Include="Troll.cpp" />
   </ItemGroup>
@@ -146,13 +144,11 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Goblin.h" />
     <ClInclude Include="Intro.h" />
-    <ClInclude Include="inventory.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemFactory.h" />
     <ClInclude Include="Knight.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Orc.h" />
-    <ClInclude Include="shop.h" />
     <ClInclude Include="Slime.h" />
     <ClInclude Include="Troll.h" />
     <ClInclude Include="Pirate.h" />

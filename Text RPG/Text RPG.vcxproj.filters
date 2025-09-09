@@ -75,10 +75,6 @@
     <ClCompile Include="Pirate.cpp">
       <Filter>소스 파일\캐릭터 소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="inventory.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="shop.cpp">
     <ClCompile Include="Item.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -123,10 +119,6 @@
     <ClInclude Include="Intro.h">
       <Filter>헤더 파일\인트로 헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="inventory.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="shop.h">
     <ClInclude Include="Item.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
