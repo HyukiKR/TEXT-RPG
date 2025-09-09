@@ -1,4 +1,8 @@
 #include "Character.h"
+#include "Knight.h"
+#include "Alchemist.h"
+#include "Pirate.h"
+#include "Farmer.h"
 #include <iostream>
 
 //생성자와 소멸자 정의
@@ -15,6 +19,19 @@ Character::Character(string t_name)
 Character::~Character()
 {
 	delete instance;
+}
+
+//정적 메소드: 유일한 캐릭터 인스턴트를 반환
+Character* Character::getInstance(const string name, int job)
+{
+	if (instance == nullptr && !name.empty()) {
+		job == 1 ? instance = new Knight(name) :
+			job == 2 ? instance = new Alchemist(name) :
+			job == 3 ? instance = new Pirate(name) :
+			job == 4 ? instance = new Farmer(name) :
+			instance = new Character(name);
+	}
+	return instance;
 }
 
 //캐릭터 상태창 디스플레이

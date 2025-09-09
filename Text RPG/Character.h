@@ -28,15 +28,9 @@ public:
 	Character(const Character&) = delete;
 	Character& operator=(const Character&) = delete;
 
-	////정적 메소드: 유일한 캐릭터 인스턴트를 반환
-	//static Character* getInstance(const string name = "")
-	//{
-	//	if (instance == nullptr && !name.empty()) {
-	//		instance = new Character(name);
-	//	}
-	//	return instance;
-	//}
-
+	//정적 메소드: 유일한 캐릭터 인스턴트를 반환
+	static Character* getInstance(const string name = "", int job = 0);
+	
 	void displayStatus() const;
 	void levelUp();
 	void useItem(const int index);
