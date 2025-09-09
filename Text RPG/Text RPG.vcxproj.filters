@@ -79,6 +79,10 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="shop.cpp">
+    <ClCompile Include="Item.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemFactory.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -123,6 +127,10 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="shop.h">
+    <ClInclude Include="Item.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemFactory.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
