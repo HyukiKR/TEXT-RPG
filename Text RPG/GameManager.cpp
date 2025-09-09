@@ -11,7 +11,8 @@ void displayBattleChoice()
 	cout << endl << "---------------------------" << endl;
 	cout << "전투 시스템" << endl;
 	cout << "1. 공격" << endl;
-	cout << "2. 게임 종료" << endl;
+	cout << "2. 인벤토리 확인" << endl;
+	cout << "3. 게임 종료" << endl;
 	cout << "---------------------------" << endl << endl;
 	cout << "선택: ";
 }
@@ -158,6 +159,13 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 
 		case 2:
 		{
+			Inventory inv;
+			inv.showItemsSimple();
+			break;
+		}
+
+		case 3:
+		{
 			cout << "게임을 종료합니다." << endl;
 
 			// 메모리 정리
@@ -168,13 +176,14 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 			monsters.clear();
 
 			exit(0);
-		}
-			break;
+			break;		
+		}			
 
 		default:
 			cout << "잘못된 선택입니다. 1 또는 2를 선택해주세요." << endl;
 			break;
 		}
+
 
 	}
 }
@@ -214,7 +223,7 @@ void GameManager::battle(Character* Player)
 			switch (choice)
 			{
 			case 1:
-				// 플레이어 공격
+			{	// 플레이어 공격
 				cout << Player->getName() << "이(가) " << monster->getName() << "을(를) 공격합니다! ";
 				monster->takeDamage(Player->getAttack());
 
@@ -248,15 +257,25 @@ void GameManager::battle(Character* Player)
 				}
 				break;
 
+			}
+				
 			case 2:
+			{
+				Inventory inv;
+				inv.showItemsSimple();
+				break;
+			}
+
+			case 3:
+			{
 				cout << "게임을 종료합니다." << endl;
 				delete monster;
 				exit(0);
 				break;
-
+			}
 			default:
 				cout << "잘못된 선택입니다. 1 또는 2를 선택해주세요." << endl;
-				break;
+				break;				
 			}
 		}
 	}

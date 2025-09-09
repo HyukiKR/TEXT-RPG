@@ -8,6 +8,7 @@
 #include "Troll.h"
 #include "Orc.h"
 #include "Slime.h"
+#include "inventory.h"
 #include <vector>
 
 class GameManager {
