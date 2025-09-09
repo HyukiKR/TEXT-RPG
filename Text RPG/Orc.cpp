@@ -28,13 +28,6 @@ int Orc::randNum(int min, int max) {
 	return dist(gen);
 }
 
-string Orc::getIntro() const {
-	return "무기를 들어라, 결투다";
-}
-string Orc::getDeathLine() const {
-	return "크으윽. 명예로운 죽음이다";
-}
-
 void Orc::takeDamage(int damage) {
 	health -= damage;
 	if (health < 0)

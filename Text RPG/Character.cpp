@@ -31,16 +31,21 @@ void Character::displayStatus() const
 //레벨업 메소드
 void Character::levelUp()
 {
-	if (level <= 10)
+	const int MAX_LEVEL = 10;
+
+	if (level < MAX_LEVEL)
 	{
 		level++;
-		experience -= 100;		
+		experience -= 100;
 		maxHealth += level * 20;
 		health = maxHealth;
 		attack += level * 5;
+		cout << "레벨업! 현재 레벨: " << level << endl;
 	}
 	else
-		cout << "최대 레벨인 10에 도달했습니다." << endl;
+	{
+		cout << "최대 레벨인 " << MAX_LEVEL << "에 도달했습니다." << endl;
+	}
 }
 
 //아이템 사용 메소드
@@ -61,10 +66,22 @@ void Character::takeDamage(int damage)
 
 void Character::setExperience(int exp)
 {
-	experience += exp;
-	if (experience >= 100)
+	const int MAX_LEVEL = 10;
+
+	// 최대 레벨에서는 경험치를 더 이상 받지 않음
+	if (level >= MAX_LEVEL)
 	{
-		levelUp();
+		cout << "최대 레벨이므로 경험치를 획득할 수 없습니다." << endl;
+		return;
+	}
+
+	experience += exp;
+	cout << "경험치 +" << exp << " (현재: " << experience << "/100)" << endl;
+
+	// 경험치가 100 이상이면 레벨업 (연속 레벨업 가능) && 연산자로 다중 조건 처리
+	while (experience >= 100 && level < MAX_LEVEL)
+	{
+		levelUp();  // levelUp() 내부에서 experience -= 100 처리됨
 	}
 }
 
