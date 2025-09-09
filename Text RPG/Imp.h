@@ -1,20 +1,20 @@
 #pragma once
-#ifndef SLIME_H
-#define SLIME_H
+#ifndef Imp_H
+#define Imp_H
 
 #include "Monster.h"
 
-class Slime : public Monster {
+class Imp : public Monster {
 private:
 	string name;
 	int health;
 	int attack;
 
 public:
-	Slime(int level);
-	string getName();
-	int getHealth();
-	int getAttack();
+	Imp(int level);
+	string getName() const;
+	int getHealth() const;
+	int getAttack() const;
 	void takeDamage(int damage);
 	int randNum(int min, int max);
 
@@ -22,4 +22,4 @@ public:
 	std::string getDeathLine() const override;
 };
 
-#endif // !SLIME_H
+#endif 

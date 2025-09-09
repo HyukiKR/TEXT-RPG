@@ -17,48 +17,19 @@ int main()
 	GameManager gameManager;
 	Monster* monster = nullptr;
 
-    Intro().displayIntro(); //ÀÎÆ®·Î È­¸é Ãâ·Â
+    Intro().displayIntro(); //ì¸íŠ¸ë¡œ í™”ë©´ ì¶œë ¥
 
-	cout << "Ä³¸¯ÅÍ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä: ";
+	cout << "ìºë¦­í„° ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”: ";
 	string name;
 	cin >> name;
-
-	cout << "¿øÇÏ´Â Á÷¾÷À» ¼±ÅÃÇØÁÖ¼¼¿ä." << endl << "1. ±â»ç  2. ¿¬±İ¼ú»ç  3. ÇØÀû  4. ³óºÎ" << endl;
-	int job_choice = 0;
-	cin >> job_choice;
-
-    Character* player = nullptr;
-
-    switch (job_choice) {
-    case 1:
-        //player = Knight::getInstance(name);
-        player = new Knight(name);
-        break;
-    case 2:
-        //player = Alchemist::getInstance(name);
-        player = new Alchemist(name);
-        break;
-    case 3:
-        //player = Pirate::getInstance(name);
-        player = new Pirate(name);
-        break;
-    case 4:
-        //player = Farmer::getInstance(name);
-        player = new Farmer(name);
-        break;
-    default:
-        cout << "Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù." << endl;
-        return 1;
-    }
-
-	//Character* player = Character::getInstance(name);
-	cout << "Ä³¸¯ÅÍ " << name << " »ı¼º ¿Ï·á! ·¹º§: " << player->getLevel() << ", Ã¼·Â: " <<
-		player->getHealth() << ", °ø°İ·Â: " << player->getAttack() << endl << endl;
+	Character* player = Character::getInstance(name);
+	cout << "ìºë¦­í„° " << name << " ìƒì„± ì™„ë£Œ! ë ˆë²¨: " << player->getLevel() << ", ì²´ë ¥: " <<
+		player->getHealth() << ", ê³µê²©ë ¥: " << player->getAttack() << endl << endl;
 
 
 	gameManager.battle(player);
 
-	//Çª½Ã Å×½ºÆ® ¿ë ÁÖ¼®
+	//í‘¸ì‹œ í…ŒìŠ¤íŠ¸ ìš© ì£¼ì„
 
 	return 0;
 }

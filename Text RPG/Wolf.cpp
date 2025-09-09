@@ -1,41 +1,41 @@
 #include <iostream>
-#include "Orc.h"
+#include "Wolf.h"
 
 using namespace std;
 
-Orc::Orc(int level) {
-	name = "Orc";
+Wolf::Wolf(int level) {
+	name = "Wolf";
 	health = level * randNum(20, 30);
 	attack = level * randNum(5, 10);
 }
 
-string Orc::getName() {
+string Wolf::getName() {
 	return name;
 }
 
-int Orc::getHealth() {
+int Wolf::getHealth() {
 	return health;
 }
 
-int Orc::getAttack() {
+int Wolf::getAttack() {
 	return attack;
 }
 
-int Orc::randNum(int min, int max) {
+int Wolf::randNum(int min, int max) {
 	random_device rd;
 	mt19937 gen(rd());
 	uniform_int_distribution<int> dist(min, max);
 	return dist(gen);
 }
 
-string Orc::getIntro() const {
-	return "¹«±â¸¦ µé¾î¶ó, °áÅõ´Ù";
+string Wolf::getIntro() const {
+	return "¾Æ¿ì¿ì¿ì¿ì~";
 }
-string Orc::getDeathLine() const {
-	return "Å©À¸À¹. ¸í¿¹·Î¿î Á×À½ÀÌ´Ù";
+string Wolf::getDeathLine() const {
+	return "³¢³©.. ³¢À×..";
 }
 
-void Orc::takeDamage(int damage) {
+void Wolf::takeDamage(int damage) {
 	health -= damage;
 	if (health < 0)
 	{
