@@ -26,7 +26,7 @@ void Pirate::passiveSkill() // ∏≈≈œ 1~10 ∞ÒµÂ √ﬂ∞°»πµÊ
 		cout << name << "¿∫(¥¬) " << ran << " ∞ÒµÂ∏¶ ªØæÓø‘¥Ÿ!" << endl;
 		break;
 
-	case2:
+	case 2:
 		cout << name << "¿∫(¥¬) " << ran << " ∞ÒµÂ∏¶ ΩΩ¬Ω«ﬂ¥Ÿ!" << endl;
 		break;
 	}
