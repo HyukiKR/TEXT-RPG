@@ -82,6 +82,18 @@ void Character::useItem(const int index)
 	//아이템 사용 시스템
 }
 
+//체력 회복
+void Character::healHealth(const int heal)
+{
+	health += heal;
+}
+
+//공격력 증가
+void Character::boostAttack(const int boost)
+{
+	attack += boost;
+}
+
 //set 함수
 void Character::takeDamage(int damage)
 {

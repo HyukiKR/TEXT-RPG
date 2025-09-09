@@ -37,6 +37,8 @@ public:
 	void levelUp();
 	void useItem(const int index);
 	virtual void passiveSkill() = 0;
+	void healHealth(const int heal);
+	void boostAttack(const int boost);
 
 	//get
 	string getName() const;
