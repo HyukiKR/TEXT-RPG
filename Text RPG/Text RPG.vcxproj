@@ -123,25 +123,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Alchemist.cpp" />
     <ClCompile Include="Character.cpp" />
+    <ClCompile Include="Farmer.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Goblin.cpp" />
     <ClCompile Include="Intro.cpp" />
     <ClCompile Include="Knight.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Orc.cpp" />
+    <ClCompile Include="Pirate.cpp" />
     <ClCompile Include="Slime.cpp" />
     <ClCompile Include="Troll.cpp" />
-    <ClCompile Include="Dragon.cpp" />
-    <ClCompile Include="DemonLord.cpp" />
-    <ClCompile Include="Imp.cpp" />
-    <ClCompile Include="Wolf.cpp" />
-    <ClCompile Include="SkeletonWarrior.cpp" />
-    <ClCompile Include="Zombie.cpp" />
-    <ClCompile Include="Lizardmen.cpp" />
-    <ClCompile Include="Magmagollem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Alchemist.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Goblin.h" />
@@ -151,14 +147,8 @@
     <ClInclude Include="Orc.h" />
     <ClInclude Include="Slime.h" />
     <ClInclude Include="Troll.h" />
-    <ClInclude Include="Dragon.h" />
-    <ClInclude Include="DemonLord.h" />
-    <ClInclude Include="Imp.h" />
-    <ClInclude Include="Wolf.h" />
-    <ClInclude Include="SkeletonWarrior.h" />
-    <ClInclude Include="Zombie.h" />
-    <ClInclude Include="Lizardmen.h" />
-    <ClInclude Include="Magmagollem.h" />
+    <ClInclude Include="Pirate.h" />
+    <ClInclude Include="Farmer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
