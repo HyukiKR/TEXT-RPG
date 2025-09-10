@@ -1,14 +1,8 @@
 #include "Character.h"
-#include "GameLogger.h"
-#include "Knight.h"
-#include "Alchemist.h"
-#include "Pirate.h"
-#include "Farmer.h"
 #include <iostream>
-#include <random>
 
 //생성자와 소멸자 정의
-Character::Character(string t_name)
+Character::Character(string t_name) 
 {
 	name = t_name;
 	level = 1;
@@ -23,23 +17,10 @@ Character::~Character()
 	delete instance;
 }
 
-//정적 메소드: 유일한 캐릭터 인스턴트를 반환
-Character* Character::getInstance(const string name, int job)
-{
-	if (instance == nullptr && !name.empty()) {
-		job == 1 ? instance = new Knight(name) :
-			job == 2 ? instance = new Alchemist(name) :
-			job == 3 ? instance = new Pirate(name) :
-			job == 4 ? instance = new Farmer(name) :
-			instance = new Knight(name);
-	}
-	return instance;
-}
-
 //캐릭터 상태창 디스플레이
 void Character::displayStatus() const
 {
-	cout << endl << "이름: " << name << endl;
+	cout << endl <<  "이름: " << name << endl;
 	cout << "레벨: " << level << endl;
 	cout << "체력: " << health << "/" << maxHealth << endl;
 	cout << "공격력: " << attack << endl;
@@ -60,7 +41,6 @@ void Character::levelUp()
 		health = maxHealth;
 		attack += level * 5;
 		cout << "레벨업! 현재 레벨: " << level << endl;
-		GameLogger::getInstance()->logLevelUp(level);  // 로그 추가
 	}
 	else
 	{
@@ -68,32 +48,10 @@ void Character::levelUp()
 	}
 }
 
-//랜덤 숫자 반환 함수
-int Character::randNum(int a, int b)
-{
-	static std::random_device rd;
-	static std::mt19937 gen(rd());  // Mersenne Twister 엔진 사용
-	std::uniform_int_distribution<> distrib(a, b);
-	return distrib(gen);
-}
-
-
 //아이템 사용 메소드
 void Character::useItem(const int index)
 {
 	//아이템 사용 시스템
-}
-
-//체력 회복
-void Character::healHealth(const int heal)
-{
-	health += heal;
-}
-
-//공격력 증가
-void Character::boostAttack(const int boost)
-{
-	attack += boost;
 }
 
 //set 함수
@@ -140,11 +98,6 @@ void Character::setGold(int amount)
 string Character::getName() const
 {
 	return name;
-}
-
-string Character::getJobName() const
-{
-	return job_name;
 }
 
 int Character::getLevel() const

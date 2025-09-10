@@ -1,11 +1,11 @@
 #pragma once
 
-#ifndef SLIME_H
-#define SLIME_H
+#ifndef Lizardmen_H
+#define Lizardmen_H
 
 #include "Monster.h"
 
-class Slime : public Monster {
+class Lizardmen : public Monster {
 private:
 	string name;
 	string intro;
@@ -14,16 +14,15 @@ private:
 	int attack;
 
 public:
-	Slime(int level);
+	Lizardmen(int level);
 	string getName();
-	string getIntro(); 
-	string getDeathLine();
 	int getHealth();
 	int getAttack();
 	void takeDamage(int damage);
 	int randNum(int min, int max);
 
-	
+	string getIntro();
+	string getDeathLine();
 };
+#endif 
 
-#endif // !SLIME_H

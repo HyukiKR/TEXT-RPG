@@ -1,5 +1,4 @@
-ï»¿#include "GameManager.h"
-#include "GameLogger.h"
+#include "GameManager.h"
 #include <iostream>
 #include "Character.h"
 #include "Knight.h"
@@ -7,99 +6,59 @@
 #include "Pirate.h"
 #include "Farmer.h"
 #include "Intro.h"
-#include "Shop.h"
 
 using namespace std;
 
 Character* Character::instance = nullptr;
 
-int main()
+
+int main() 
 {
 	GameManager gameManager;
-	GameLogger* logger = GameLogger::getInstance();
 	Monster* monster = nullptr;
 
-    Intro().displayIntro(); //ì¸íŠ¸ë¡œ í™”ë©´ ì¶œë ¥
+    Intro().displayIntro(); //ÀÎÆ®·Î È­¸é Ãâ·Â
 
-	cout << "ìºë¦­í„° ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”: ";
+	cout << "Ä³¸¯ÅÍ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä: ";
 	string name;
 	cin >> name;
 
+	cout << "¿øÇÏ´Â Á÷¾÷À» ¼±ÅÃÇØÁÖ¼¼¿ä." << endl << "1. ±â»ç  2. ¿¬±İ¼ú»ç  3. ÇØÀû  4. ³óºÎ" << endl;
 	int job_choice = 0;
-	for (;;)
-	{
-		cout << "ì›í•˜ëŠ” ì§ì—…ì„ ì„ íƒí•´ì£¼ì„¸ìš”." << endl << "1. ê¸°ì‚¬  2. ì—°ê¸ˆìˆ ì‚¬  3. í•´ì   4. ë†ë¶€" << endl;
-		cin >> job_choice;
-		if (job_choice > 0 && job_choice < 5)
-		{
-			break;
-		}
-		else
-		{
-			cout << "ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤" << endl;
-		}
-	}
+	cin >> job_choice;
 
-	Character* player = Character::getInstance(name, job_choice);
-	logger->logJobSelected(player->getJobName());  // ë¡œê·¸ ì¶”ê°€
+    Character* player = nullptr;
 
-	cout << player->getJobName() << " " << name << " ìƒì„± ì™„ë£Œ! ë ˆë²¨: " << player->getLevel() << ", ì²´ë ¥: " <<
-		player->getHealth() << ", ê³µê²©ë ¥: " << player->getAttack() << endl << endl;
+    switch (job_choice) {
+    case 1:
+        //player = Knight::getInstance(name);
+        player = new Knight(name);
+        break;
+    case 2:
+        //player = Alchemist::getInstance(name);
+        player = new Alchemist(name);
+        break;
+    case 3:
+        //player = Pirate::getInstance(name);
+        player = new Pirate(name);
+        break;
+    case 4:
+        //player = Farmer::getInstance(name);
+        player = new Farmer(name);
+        break;
+    default:
+        cout << "Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù." << endl;
+        return 1;
+    }
 
-	// ê²Œì„ ë£¨í”„
-	while (true) {
-		cout << "\n===== ë©”ì¸ ë©”ë‰´ =====\n";
-		cout << "1. ì „íˆ¬\n";
-		cout << "2. ìƒíƒœ í™•ì¸\n";
-		cout << "3. ìƒì \n";
-		cout << "4. ì¸ë²¤í† ë¦¬\n";
-		cout << "5. ë¡œê·¸ í™•ì¸\n";
-		cout << "6. ì „íˆ¬ ê¸°ë¡\n";
-		cout << "7. ë¡œê·¸ ì €ì¥\n";
-		cout << "8. ì¢…ë£Œ\n";
-		cout << "ì„ íƒ: ";
+	//Character* player = Character::getInstance(name);
+	cout << "Ä³¸¯ÅÍ " << name << " »ı¼º ¿Ï·á! ·¹º§: " << player->getLevel() << ", Ã¼·Â: " <<
+		player->getHealth() << ", °ø°İ·Â: " << player->getAttack() << endl << endl;
 
-		int choice;
-		cin >> choice;
 
-		switch (choice) {
-		case 1:
-			gameManager.battle(player);
-			break;
-		case 2:
-			player->displayStatus();
-			break;
-		case 3:
-		{
-			Shop shop;
-			int playerGold = player->getGold();
-			Inventory inv;
-			shop.open(playerGold, inv);
-			player->setGold(playerGold - player->getGold());
-			break;
-		}
-		case 4:
-			gameManager.displayInventory(player);
-			break;
-		case 5:
-			logger->displayLogs();
-			break;
-		case 6:
-			logger->displaySummary();
-			logger->displayMonsterKills();
-			logger->displayShopHistory();
-			break;
-		case 7:
-			logger->saveLogsToFile();
-			break;
-		case 8:
-			logger->saveLogsToFile();
-			cout << "ê²Œì„ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.\n";
-			return 0;
-		default:
-			cout << "ì˜ëª»ëœ ì„ íƒì…ë‹ˆë‹¤.\n";
-		}
-	}
+	gameManager.battle(player);
+
+	//Çª½Ã Å×½ºÆ® ¿ë ÁÖ¼®
 
 	return 0;
 }

@@ -4,5 +4,4 @@
 class Pirate : public Character {
 public:
     Pirate(string t_name);
-    void passiveSkill() override;
 };
