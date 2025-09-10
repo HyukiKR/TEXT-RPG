@@ -1,10 +1,48 @@
 #include "Shop.h"
+#include "Character.h"
+#include <ctime> // 초마다 시드를 변경하여 매번 상점마다 다른 랜덤한 결과가 나오기위해 필요하다네요...
 
 Shop::Shop() {
-    // 도연님 Item 준비되면 여기서 판매 목록 추가
-    // items_.push_back(Item("Health Potion (+50 HP)", 10, 50, 0));
-    // items_.push_back(Item("Attack Boost (+10 ATK)", 15, 0, 10));
+    
 }
+void Shop::setStockForJob(Character job, int classCount, int scrollCount) {
+    items_.clear();
+
+    // 직업별 풀
+    vector<Item> classPool;
+    switch (job) {
+    case Character::Alchemist: classPool = ItemFactory::getAlchemistItems(); break;
+    case Character::Knight:    classPool = ItemFactory::getKnightItems();    break;
+    case Character::Pirate:    classPool = ItemFactory::getPirateItems();    break;
+    case Character::Farmer:    classPool = ItemFactory::getFarmerItems();    break;
+    }
+
+    // 스크롤 풀
+    vector<Item> scrollPool = ItemFactory::getScrolls();
+
+    //  랜덤으로 아이템이 나오게 하는 함수
+    unsigned seed = (unsigned)time(nullptr);
+    shuffle(classPool.begin(), classPool.end(), default_random_engine(seed));
+    shuffle(scrollPool.begin(), scrollPool.end(), default_random_engine(seed + 1));
+
+    int takeClass = min(classCount, (int)classPool.size());
+    int takeScroll = min(scrollCount, (int)scrollPool.size());
+
+    for (int i = 0; i < takeClass; ++i) items_.push_back(classPool[i]);
+    for (int i = 0; i < takeScroll; ++i) items_.push_back(scrollPool[i]);
+
+    // (옵션) 총 4개가 안 채워지면 가능한 범위에서 보충
+    int target = classCount + scrollCount;
+    if ((int)items_.size() < target) {
+        vector<Item> refill;
+        for (int i = takeClass; i < (int)classPool.size(); ++i) refill.push_back(classPool[i]);
+        for (int i = takeScroll; i < (int)scrollPool.size(); ++i) refill.push_back(scrollPool[i]);
+        shuffle(refill.begin(), refill.end(), default_random_engine(seed + 2));
+        int need = target - (int)items_.size();
+        for (int i = 0; i < need && i < (int)refill.size(); ++i) items_.push_back(refill[i]);
+    }
+}
+
 
 void Shop::showBuyList() const {
     cout << "[구매]\n";

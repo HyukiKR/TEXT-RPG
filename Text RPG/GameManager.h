@@ -17,6 +17,7 @@
 #include "Dragon.h"
 #include "Demonlord.h"
 #include <vector>
+#include "inventory.h"
 
 class GameManager {
 public:
