@@ -27,10 +27,10 @@ string GameLogger::getCurrentTime() {
     time_t now = time(0);
     tm* ltm = localtime(&now);
     stringstream ss;
-    ss << setfill('0') 
-       << setw(2) << ltm->tm_hour << ":"
-       << setw(2) << ltm->tm_min << ":"
-       << setw(2) << ltm->tm_sec;
+    ss << setfill('0')
+        << setw(2) << ltm->tm_hour << ":"
+        << setw(2) << ltm->tm_min << ":"
+        << setw(2) << ltm->tm_sec;
     return ss.str();
 }
 
@@ -38,14 +38,15 @@ void GameLogger::logBattle(const string& monsterName, bool victory) {
     LogEntry entry;
     entry.timestamp = getCurrentTime();
     entry.eventType = "BATTLE";
-    
+
     if (victory) {
-        entry.message = monsterName + " ì²˜ì¹˜!";
+        entry.message = monsterName + " Ã³Ä¡!";
         monsterKillCount[monsterName]++;
-    } else {
-        entry.message = monsterName + "ì—ê²Œ íŒ¨ë°°...";
     }
-    
+    else {
+        entry.message = monsterName + "¿¡°Ô ÆĞ¹è...";
+    }
+
     logs.push_back(entry);
 }
 
@@ -53,7 +54,7 @@ void GameLogger::logItemUse(const string& itemName) {
     LogEntry entry;
     entry.timestamp = getCurrentTime();
     entry.eventType = "ITEM";
-    entry.message = itemName + " ì‚¬ìš©";
+    entry.message = itemName + " »ç¿ë";
     logs.push_back(entry);
 }
 
@@ -61,7 +62,7 @@ void GameLogger::logGoldEarned(int amount) {
     LogEntry entry;
     entry.timestamp = getCurrentTime();
     entry.eventType = "GOLD";
-    entry.message = to_string(amount) + "G íšë“";
+    entry.message = to_string(amount) + "G È¹µæ";
     totalGoldEarned += amount;
     logs.push_back(entry);
 }
@@ -70,7 +71,7 @@ void GameLogger::logGoldSpent(int amount) {
     LogEntry entry;
     entry.timestamp = getCurrentTime();
     entry.eventType = "SHOP";
-    entry.message = to_string(amount) + "G ì‚¬ìš©";
+    entry.message = to_string(amount) + "G »ç¿ë";
     totalGoldSpent += amount;
     logs.push_back(entry);
 }
@@ -79,7 +80,7 @@ void GameLogger::logExpEarned(int amount) {
     LogEntry entry;
     entry.timestamp = getCurrentTime();
     entry.eventType = "EXP";
-    entry.message = "ê²½í—˜ì¹˜ +" + to_string(amount);
+    entry.message = "°æÇèÄ¡ +" + to_string(amount);
     totalExpEarned += amount;
     logs.push_back(entry);
 }
@@ -88,7 +89,7 @@ void GameLogger::logLevelUp(int newLevel) {
     LogEntry entry;
     entry.timestamp = getCurrentTime();
     entry.eventType = "LEVELUP";
-    entry.message = "ë ˆë²¨ì—…! í˜„ì¬ ë ˆë²¨: " + to_string(newLevel);
+    entry.message = "·¹º§¾÷! ÇöÀç ·¹º§: " + to_string(newLevel);
     logs.push_back(entry);
 }
 
@@ -96,7 +97,7 @@ void GameLogger::logItemFound(const string& itemName) {
     LogEntry entry;
     entry.timestamp = getCurrentTime();
     entry.eventType = "ITEM";
-    entry.message = itemName + " íšë“!";
+    entry.message = itemName + " È¹µæ!";
     totalItemsFound++;
     logs.push_back(entry);
 }
@@ -105,7 +106,7 @@ void GameLogger::logItemBought(const string& itemName, int price) {
     LogEntry entry;
     entry.timestamp = getCurrentTime();
     entry.eventType = "SHOP";
-    entry.message = itemName + " êµ¬ë§¤ (-" + to_string(price) + "G)";
+    entry.message = itemName + " ±¸¸Å (-" + to_string(price) + "G)";
     totalItemsBought++;
     logs.push_back(entry);
 }
@@ -114,7 +115,7 @@ void GameLogger::logItemSold(const string& itemName, int price) {
     LogEntry entry;
     entry.timestamp = getCurrentTime();
     entry.eventType = "SHOP";
-    entry.message = itemName + " íŒë§¤ (+" + to_string(price) + "G)";
+    entry.message = itemName + " ÆÇ¸Å (+" + to_string(price) + "G)";
     totalItemsSold++;
     logs.push_back(entry);
 }
@@ -123,7 +124,7 @@ void GameLogger::logJobSelected(const string& jobName) {
     LogEntry entry;
     entry.timestamp = getCurrentTime();
     entry.eventType = "CHARACTER";
-    entry.message = "ì§ì—… ì„ íƒ: " + jobName;
+    entry.message = "Á÷¾÷ ¼±ÅÃ: " + jobName;
     logs.push_back(entry);
 }
 
@@ -136,61 +137,62 @@ void GameLogger::logCustom(const string& eventType, const string& message) {
 }
 
 void GameLogger::displayLogs() {
-    // í•œê¸€ ì¶œë ¥ ì„¤ì •
+    // ÇÑ±Û Ãâ·Â ¼³Á¤
     SetConsoleOutputCP(CP_UTF8);
-    
-    cout << "\n========== ê²Œì„ ë¡œê·¸ ==========\n";
-    cout << "ì„¸ì…˜ ì‹œì‘: " << sessionStartTime << "\n\n";
-    
+
+    cout << "\n========== °ÔÀÓ ·Î±× ==========\n";
+    cout << "¼¼¼Ç ½ÃÀÛ: " << sessionStartTime << "\n\n";
+
     for (const auto& log : logs) {
         cout << "[" << log.timestamp << "] ";
-        
-        // ì´ë²¤íŠ¸ íƒ€ì…ë³„ ë§ˆí¬
-        if (log.eventType == "BATTLE") cout << "âš” ";
-        else if (log.eventType == "ITEM") cout << "ğŸ“¦ ";
-        else if (log.eventType == "GOLD") cout << "ğŸ’° ";
-        else if (log.eventType == "EXP") cout << "âœ¨ ";
-        else if (log.eventType == "LEVELUP") cout << "ğŸ‰ ";
-        else if (log.eventType == "SHOP") cout << "ğŸ›’ ";
-        else if (log.eventType == "CHARACTER") cout << "ğŸ‘¤ ";
-        
+
+        // ÀÌ¸ğÁö¸¦ ASCII ¹®ÀÚ·Î º¯°æ
+        if (log.eventType == "BATTLE") cout << "[>] ";
+        else if (log.eventType == "ITEM") cout << "[*] ";
+        else if (log.eventType == "GOLD") cout << "[$] ";
+        else if (log.eventType == "EXP") cout << "[+] ";
+        else if (log.eventType == "LEVELUP") cout << "[!] ";
+        else if (log.eventType == "SHOP") cout << "[S] ";
+        else if (log.eventType == "CHARACTER") cout << "[C] ";
+
         cout << log.message << endl;
     }
     cout << "================================\n";
 }
 
 void GameLogger::displaySummary() {
-    cout << "\n========== í”Œë ˆì´ ìš”ì•½ ==========\n";
-    cout << "ğŸ® ì„¸ì…˜ ì‹œì‘ ì‹œê°„: " << sessionStartTime << "\n";
-    cout << "âš” ì´ ì²˜ì¹˜í•œ ëª¬ìŠ¤í„°: " << getTotalKills() << "ë§ˆë¦¬\n";
-    cout << "ğŸ’° ì´ íšë“ ê³¨ë“œ: " << totalGoldEarned << "G\n";
-    cout << "ğŸ’¸ ì´ ì‚¬ìš© ê³¨ë“œ: " << totalGoldSpent << "G\n";
-    cout << "ğŸ’µ ìˆœ ìˆ˜ìµ: " << (totalGoldEarned - totalGoldSpent) << "G\n";
-    cout << "âœ¨ ì´ íšë“ ê²½í—˜ì¹˜: " << totalExpEarned << "\n";
-    cout << "ğŸ“¦ ì´ ë°œê²¬í•œ ì•„ì´í…œ: " << totalItemsFound << "ê°œ\n";
-    cout << "ğŸ›’ êµ¬ë§¤í•œ ì•„ì´í…œ: " << totalItemsBought << "ê°œ\n";
-    cout << "ğŸ’° íŒë§¤í•œ ì•„ì´í…œ: " << totalItemsSold << "ê°œ\n";
+    cout << "\n========== ÇÃ·¹ÀÌ ¿ä¾à ==========\n";
+    cout << "[*] ¼¼¼Ç ½ÃÀÛ ½Ã°£: " << sessionStartTime << "\n";
+    cout << "[>] ÃÑ Ã³Ä¡ÇÑ ¸ó½ºÅÍ: " << getTotalKills() << "¸¶¸®\n";
+    cout << "[$] ÃÑ È¹µæ °ñµå: " << totalGoldEarned << "G\n";
+    cout << "[$] ÃÑ »ç¿ë °ñµå: " << totalGoldSpent << "G\n";
+    cout << "[$] ¼ø ¼öÀÍ: " << (totalGoldEarned - totalGoldSpent) << "G\n";
+    cout << "[+] ÃÑ È¹µæ °æÇèÄ¡: " << totalExpEarned << "\n";
+    cout << "[*] ÃÑ ¹ß°ßÇÑ ¾ÆÀÌÅÛ: " << totalItemsFound << "°³\n";
+    cout << "[S] ±¸¸ÅÇÑ ¾ÆÀÌÅÛ: " << totalItemsBought << "°³\n";
+    cout << "[S] ÆÇ¸ÅÇÑ ¾ÆÀÌÅÛ: " << totalItemsSold << "°³\n";
     cout << "==================================\n";
 }
 
 void GameLogger::displayMonsterKills() {
-    cout << "\n===== ëª¬ìŠ¤í„° ì²˜ì¹˜ ê¸°ë¡ =====\n";
+    cout << "\n===== ¸ó½ºÅÍ Ã³Ä¡ ±â·Ï =====\n";
     if (monsterKillCount.empty()) {
-        cout << "ì•„ì§ ì²˜ì¹˜í•œ ëª¬ìŠ¤í„°ê°€ ì—†ìŠµë‹ˆë‹¤.\n";
-    } else {
+        cout << "¾ÆÁ÷ Ã³Ä¡ÇÑ ¸ó½ºÅÍ°¡ ¾ø½À´Ï´Ù.\n";
+    }
+    else {
         for (const auto& pair : monsterKillCount) {
-            cout << "â€¢ " << pair.first << ": " << pair.second << "ë§ˆë¦¬\n";
+            cout << "[>] " << pair.first << ": " << pair.second << "¸¶¸®\n";
         }
         cout << "-------------------\n";
-        cout << "ì´í•©: " << getTotalKills() << "ë§ˆë¦¬\n";
+        cout << "ÃÑÇÕ: " << getTotalKills() << "¸¶¸®\n";
     }
     cout << "============================\n";
 }
 
 void GameLogger::displayShopHistory() {
-    cout << "\n===== ìƒì  ê±°ë˜ ë‚´ì—­ =====\n";
-    cout << "êµ¬ë§¤: " << totalItemsBought << "ê°œ (ì´ " << totalGoldSpent << "G)\n";
-    cout << "íŒë§¤: " << totalItemsSold << "ê°œ\n";
+    cout << "\n===== »óÁ¡ °Å·¡ ³»¿ª =====\n";
+    cout << "±¸¸Å: " << totalItemsBought << "°³ (ÃÑ " << totalGoldSpent << "G)\n";
+    cout << "ÆÇ¸Å: " << totalItemsSold << "°³\n";
     cout << "==========================\n";
 }
 
@@ -207,20 +209,20 @@ int GameLogger::getMonsterKillCount(const string& monsterName) {
 }
 
 void GameLogger::saveLogsToFile() {
-    ofstream file("game_log.txt", ios::app);  // append ëª¨ë“œ
+    ofstream file("game_log.txt", ios::app);  // append ¸ğµå
     if (file.is_open()) {
-        file << "\n===== ê²Œì„ ì„¸ì…˜: " << sessionStartTime << " =====\n";
+        file << "\n===== °ÔÀÓ ¼¼¼Ç: " << sessionStartTime << " =====\n";
         for (const auto& log : logs) {
             file << "[" << log.timestamp << "] " << log.message << "\n";
         }
-        file << "\n=== ìš”ì•½ ===\n";
-        file << "ì´ ì²˜ì¹˜: " << getTotalKills() << "ë§ˆë¦¬\n";
-        file << "íšë“ ê³¨ë“œ: " << totalGoldEarned << "G\n";
-        file << "ì‚¬ìš© ê³¨ë“œ: " << totalGoldSpent << "G\n";
-        file << "ê²½í—˜ì¹˜: " << totalExpEarned << "\n";
+        file << "\n=== ¿ä¾à ===\n";
+        file << "ÃÑ Ã³Ä¡: " << getTotalKills() << "¸¶¸®\n";
+        file << "È¹µæ °ñµå: " << totalGoldEarned << "G\n";
+        file << "»ç¿ë °ñµå: " << totalGoldSpent << "G\n";
+        file << "°æÇèÄ¡: " << totalExpEarned << "\n";
         file << "=====================================\n";
         file.close();
-        cout << "ë¡œê·¸ê°€ game_log.txt íŒŒì¼ì— ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤.\n";
+        cout << "·Î±×°¡ game_log.txt ÆÄÀÏ¿¡ ÀúÀåµÇ¾ú½À´Ï´Ù.\n";
     }
 }
 
