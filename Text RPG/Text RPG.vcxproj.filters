@@ -197,5 +197,8 @@
     <ClInclude Include="Imp.h">
       <Filter>헤더 파일\몬스터 헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="job.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

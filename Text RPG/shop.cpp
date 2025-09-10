@@ -5,16 +5,24 @@
 Shop::Shop() {
     
 }
-void Shop::setStockForJob(Character job, int classCount, int scrollCount) {
+void Shop::setStockForJob(Job job, int classCount, int scrollCount) {
     items_.clear();
 
-    // 직업별 풀
+    // 아이템 풀
     vector<Item> classPool;
     switch (job) {
-    case Character::Alchemist: classPool = ItemFactory::getAlchemistItems(); break;
-    case Character::Knight:    classPool = ItemFactory::getKnightItems();    break;
-    case Character::Pirate:    classPool = ItemFactory::getPirateItems();    break;
-    case Character::Farmer:    classPool = ItemFactory::getFarmerItems();    break;
+    case Job::Alchemist:
+        classPool = ItemFactory::getAlchemistItems();
+        break;
+    case Job::Knight:
+        classPool = ItemFactory::getKnightItems();
+        break;
+    case Job::Pirate:
+        classPool = ItemFactory::getPirateItems();
+        break;
+    case Job::Farmer:
+        classPool = ItemFactory::getFarmerItems();
+        break;
     }
 
     // 스크롤 풀
