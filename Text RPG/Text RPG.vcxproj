@@ -159,6 +159,7 @@
     <ClInclude Include="inventory.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemFactory.h" />
+    <ClInclude Include="job.h" />
     <ClInclude Include="Knight.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Orc.h" />

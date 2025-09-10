@@ -24,3 +24,6 @@ public:
 	static std::vector<Item> getScrolls();
 };
 
+extern std::vector<Item> g_ShopItemPool;   // 아이템 풀 선언
+
+void RebuildShopItemPool(); // 아이템 풀 다시 채우는 함수

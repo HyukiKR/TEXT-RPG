@@ -20,6 +20,7 @@
 #include "Inventory.h"
 #include "shop.h"
 #include <vector>
+#include "inventory.h"
 
 class GameManager {
 public:
