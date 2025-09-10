@@ -18,7 +18,8 @@ Character::Character(string t_name)
 	attack = 10;
 	experience = 0;
 	gold = 0;
-
+	scroll = 0;
+	attackBoost = 0;
 	inventory = new Inventory();
 }
 Character::~Character()
@@ -92,12 +93,16 @@ void Character::useItem(const int index)
 void Character::healHealth(const int heal)
 {
 	health += heal;
+	if (health > maxHealth)
+	{
+		health = maxHealth;
+	}
 }
 
-//공격력 증가
+//추가 공격력 
 void Character::boostAttack(const int boost)
 {
-	attack += boost;
+	attackBoost = boost;
 }
 
 //set 함수
@@ -138,6 +143,11 @@ void Character::setGold(int amount)
 	{
 		gold = 0;
 	}
+}
+
+void Character::setScroll(int value)
+{
+	scroll = value;
 }
 
 //get 함수
@@ -184,3 +194,50 @@ const Inventory& Character::getInventory() const {
 	return *inventory;
 }
 
+int Character::getScroll() const
+{
+	return scroll;
+}
+
+int Character::getAttackBoost() const
+{
+	return attackBoost;
+}
+
+//아이템 사용
+void Character::useItemFromInventory() {
+	if (inventory->size() == 0) {
+		cout << "인벤토리가 비어있습니다!" << endl;
+		return;
+	}
+
+	cout << "어떤 아이템을 사용하시겠습니까?" << endl;
+	cout << "======================" << endl;
+	inventory->showItemsSimple();
+	cout << "0) 지금은 사용하지 않는다 " << endl;
+	cout << "======================" << endl;
+	cout << "사용할 아이템 번호: ";
+	int sel;
+	cin >> sel;
+
+	if (sel == 0) return; // 뒤로
+	int idx = sel - 1;
+
+	if (idx < 0 || idx >= inventory->size()) {
+		cout << "잘못된 선택입니다." << endl;
+		return;
+	}
+
+	const Item* it = inventory->getItem(idx);
+	if (!it) {
+		cout << "존재하지 않는 아이템입니다." << endl;
+		return;
+	}
+
+	// 아이템 효과 적용
+	it->use(this);
+
+	// 소모품이므로 인벤토리에서 제거
+	inventory->eraseAt(idx);
+	
+}
