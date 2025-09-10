@@ -31,6 +31,18 @@
     <Filter Include="헤더 파일\몬스터 헤더 파일">
       <UniqueIdentifier>{5418c40e-c81b-4ce7-b9bd-2b29878888e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\인트로 소스 파일">
+      <UniqueIdentifier>{61f85b33-83b4-4a9a-b137-ab6f44d1f526}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\인트로 헤더 파일">
+      <UniqueIdentifier>{7e3d084c-3cfa-4d86-b573-7c8d1d16ea5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\인벤토리 헤더 파일">
+      <UniqueIdentifier>{aa7efde9-6845-4a92-998e-4ac4ad67e930}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\아이템 소스 파일">
+      <UniqueIdentifier>{f75805e3-8def-44f6-8531-0c8ceef7b3a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -54,6 +66,33 @@
     <ClCompile Include="GameManager.cpp">
       <Filter>소스 파일\게임매니저 소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Knight.cpp">
+      <Filter>소스 파일\캐릭터 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Farmer.cpp">
+      <Filter>소스 파일\캐릭터 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Alchemist.cpp">
+      <Filter>소스 파일\캐릭터 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Intro.cpp">
+      <Filter>소스 파일\인트로 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Pirate.cpp">
+      <Filter>소스 파일\캐릭터 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>소스 파일\아이템 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemFactory.cpp">
+      <Filter>소스 파일\아이템 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="inventory.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="shop.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Monster.h">
@@ -76,6 +115,33 @@
     </ClInclude>
     <ClInclude Include="GameManager.h">
       <Filter>헤더 파일\게임매니저 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Knight.h">
+      <Filter>헤더 파일\캐릭터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Alchemist.h">
+      <Filter>헤더 파일\캐릭터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Pirate.h">
+      <Filter>헤더 파일\캐릭터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Farmer.h">
+      <Filter>헤더 파일\캐릭터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Intro.h">
+      <Filter>헤더 파일\인트로 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>헤더 파일\인벤토리 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemFactory.h">
+      <Filter>헤더 파일\인벤토리 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="inventory.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="shop.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
