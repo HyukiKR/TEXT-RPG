@@ -39,6 +39,7 @@ public:
 	virtual void passiveSkill() = 0;
 	void healHealth(const int heal);
 	void boostAttack(const int boost);
+	virtual void attackMassage() = 0;
 
 	//get
 	string getName() const;

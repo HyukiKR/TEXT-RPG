@@ -30,3 +30,17 @@ void Alchemist::passiveSkill() // 매 턴 공격력이 (-1 ~ +2)로 조정
 	}
 
 }
+
+void Alchemist::attackMassage() // 연금술사 공격
+{
+	int category = randNum(0, 1);
+	
+	if (category == 0)
+	{
+		cout << "산성 용액이 든 플라스크를 던지자! " << endl;
+	} 
+	else
+	{
+		cout << "염기성 용액이 든 플라스크를 던지자! " << endl;
+	}
+}
