@@ -165,6 +165,10 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 			continue;
 		}
 
+		//캐릭터 스크롤 사용 효과 저장용 변수
+		int scroll = 0;
+		int debuff = 0;
+
 		switch (choice)
 		{
 		case 1:
@@ -183,8 +187,9 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 			Monster* target = monsters[targetIndex - 1];
 
 			// 플레이어 공격
+			Player->attackMassage();
 			cout << Player->getName() << "가(이) " << target->getName() << "를(을) 공격합니다! ";
-			target->takeDamage(Player->getAttack());
+			target->takeDamage(Player->getAttack()+Player->getAttackBoost());
 
 			if (target->getHealth() <= 0)
 			{
@@ -218,8 +223,8 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 			{
 				cout << monster->getName() << "가(이) " << Player->getName() << "를(을) 공격합니다! ";
 				int tempHealth = Player->getHealth();
-				Player->takeDamage(monster->getAttack());
-				cout << "공격력: " << monster->getAttack()
+				Player->takeDamage(monster->getAttack() + debuff);
+				cout << "공격력: " << monster->getAttack() + debuff
 					<< " (체력: " << tempHealth << " -> " << Player->getHealth() << ")" << endl;
 
 				if (Player->getHealth() <= 0)
@@ -237,13 +242,37 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 					exit(0);
 				}
 			}
+
+			//턴 종료시 패시브 스킬 발동 및 공격력 부스트, 디버프 초기화
+			Player->passiveSkill();
+			Player->boostAttack(0);
+			debuff = 0;
+			
 			break;
 		}
 
 		case 2:
 		{
-			Inventory& inv = Player->getInventory();
-			inv.showItemsSimple();
+			//Inventory& inv = Player->getInventory();
+			//inv.showItemsSimple();
+			Player->useItemFromInventory();
+
+			scroll = Player->getScroll(); // 스크롤 사용 여부 상태
+
+			if (scroll > 0) // 광역공격
+			{
+				for (Monster* monster : monsters)
+				{
+					monster->takeDamage(scroll);
+				}
+			}
+			else if (scroll < 0) // 몬스터 공격력 디버프
+			{
+				debuff = scroll;
+			}
+
+			Player->setScroll(0);
+
 			break;
 		}
 
@@ -307,12 +336,18 @@ void GameManager::battle(Character* Player)
 				continue;
 			}
 
+			//캐릭터 스크롤 사용 효과 저장용 변수
+			int scroll = 0;   
+			int debuff = 0;
+
 			switch (choice)
 			{
 			case 1:
-			{	// 플레이어 공격
+			{	
+				// 플레이어 공격
+				Player->attackMassage();
 				cout << Player->getName() << "가(이) " << monster->getName() << "를(을) 공격합니다! ";
-				monster->takeDamage(Player->getAttack());
+				monster->takeDamage(Player->getAttack() + Player->getAttackBoost());
 
 				if (monster->getHealth() <= 0)
 				{
@@ -333,7 +368,7 @@ void GameManager::battle(Character* Player)
 				// 몬스터 반격
 				cout << monster->getName() << "가(이) " << Player->getName() << "를(을) 공격합니다! ";
 				tempHealth = Player->getHealth();
-				Player->takeDamage(monster->getAttack());
+				Player->takeDamage(monster->getAttack() + debuff);
 
 				if (Player->getHealth() <= 0)
 				{
@@ -347,13 +382,34 @@ void GameManager::battle(Character* Player)
 				{
 					cout << Player->getName() << " 체력: " << Player->getHealth() << endl;
 				}
+
+				//턴 종료시 패시브 스킬 발동 및 공격력 부스트, 디버프 초기화
+				Player->passiveSkill();
+				Player->boostAttack(0);
+				debuff = 0;
+
 				break;
 			}
 				
 			case 2:
 			{
-				Inventory& inv = Player->getInventory();
-				inv.showItemsSimple();
+				//Inventory& inv = Player->getInventory();
+				//inv.showItemsSimple();
+				Player->useItemFromInventory();
+				
+				scroll = Player->getScroll(); // 스크롤 사용 여부 상태
+
+				if (scroll > 0) // 광역공격
+				{
+					monster->takeDamage(scroll);
+				}
+				else if (scroll < 0) // 몬스터 공격력 디버프
+				{
+					debuff = scroll;
+				}
+
+				Player->setScroll(0);
+
 				break;
 			}
 

@@ -25,6 +25,7 @@ void Item::use(Character* character) const {
 	case ItemType::SCROLL:
 		cout << name_ << "스크롤을 펼쳤습니다!" << endl;
 		if (name_ == "Fireball Scroll") {
+			character->setScroll(effect_value_);
 			cout << "불덩이가 날아가 적을 태웁니다! (데미지 " << effect_value_ << ")" << endl;
 		}
 		else if (name_ == "Healing Scroll") {
@@ -33,12 +34,15 @@ void Item::use(Character* character) const {
 		}
 		// 몬스터 클래스에 호출하실건지..
 		else if (name_ == "Explosive Bullet Scroll") {
+			character->setScroll(effect_value_);
 			cout << "폭발탄이 주변 적들에게 퍼집니다! (데미지 " << effect_value_ << ")" << endl;
 		}
 		else if (name_ == "Explosive Bullet Scroll") {
+			character->setScroll(effect_value_);
 			cout << "관통탄이 적 방어를 무시하고 명중했습니다! (데미지 " << effect_value_ << ")" << endl;
 		}
 		else if (name_ == "Smoke Bomb Scroll") {
+			character->setScroll(-effect_value_);
 			cout << "연막탄으로 시야가 가려지고, 적의 공격력이 감소합니다!" << endl;
 		}
 		else {
