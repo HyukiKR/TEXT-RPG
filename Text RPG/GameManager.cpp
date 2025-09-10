@@ -1,4 +1,4 @@
-#include "GameManager.h"
+﻿#include "GameManager.h"
 #include "GameLogger.h"
 #include <iostream>
 #include <random>
@@ -6,16 +6,16 @@
 
 using namespace std;
 
-// ���� ȭ�鿡 ��µǴ� ���÷���
+// 전투 화면에 출력되는 디스플레이
 void displayBattleChoice()
 {
 	cout << endl << "---------------------------" << endl;
-	cout << "���� �ý���" << endl;
-	cout << "1. ����" << endl;
-	cout << "2. �κ��丮 Ȯ��" << endl;
-	cout << "3. ���� ����" << endl;
+	cout << "Battle logic" << endl;
+	cout << "1. 공격" << endl;
+	cout << "2. 인벤토리 확인" << endl;
+	cout << "3. 게임 종료" << endl;
 	cout << "---------------------------" << endl << endl;
-	cout << "����: ";
+	cout << "선택: ";
 }
 
 Monster* GameManager::generateMonster(int level)
@@ -37,45 +37,45 @@ Monster* GameManager::generateMonster(int level)
 	}
 }
 
-// ���� ���� ���� �޼ҵ�
+// 여러 몬스터 생성 메소드
 vector<Monster*> GameManager::generateMultipleMonsters(int playerLevel)
 {
 	vector<Monster*> monsters;
-	int monsterCount = randNum(2, 4);  // 2~4���� ����
+	int monsterCount = randNum(2, 4);  // 2~4마리 생성
 
-	cout << "���� ���Ͱ� ��Ÿ����! (�� " << monsterCount << "����)" << endl;
+	cout << "여러 몬스터가 나타났다! (총 " << monsterCount << "마리)" << endl;
 
 	for (int i = 0; i < monsterCount; i++)
 	{
-		// �÷��̾� ���� -1 ~ �÷��̾� ���� ������ ���� ����
+		// 플레이어 레벨 -1 ~ 플레이어 레벨 범위의 몬스터 생성
 		int monsterLevel = max(1, playerLevel - randNum(0, 1));
 		Monster* monster = generateMonster(monsterLevel);
 		monsters.push_back(monster);
 		cout << (i + 1) << ". " << monster->getName()
-			<< " (ü��: " << monster->getHealth()
-			<< ", ���ݷ�: " << monster->getAttack() << ")" << endl;
+			<< " (체력: " << monster->getHealth()
+			<< ", 공격력: " << monster->getAttack() << ")" << endl;
 	}
 
 	return monsters;
 }
 
-// ���� ���� ����
+// 다중 몬스터 전투			
 void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 {
 	GameLogger* logger = GameLogger::getInstance();
 	int totalExp = 0;
 	int defeatedCount = 0;
 
-	cout << endl << "=== ���� ���� ���� ����! ===" << endl;
+	cout << endl << "=== 다중 몬스터 전투 시작! ===" << endl;
 
 	while (!monsters.empty() && Player->getHealth() > 0)
 	{
-		// ���� ���� ���� ǥ��
-		cout << endl << "--- ���� ���� ---" << endl;
+		// 남은 몬스터 목록 표시
+		cout << endl << "--- 남은 몬스터 ---" << endl;
 		for (int i = 0; i < monsters.size(); i++)
 		{
 			cout << (i + 1) << ". " << monsters[i]->getName()
-				<< " (ü��: " << monsters[i]->getHealth() << ")" << endl;
+				<< " (체력: " << monsters[i]->getHealth() << ")" << endl;
 		}
 
 		displayBattleChoice();
@@ -83,7 +83,7 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 		cin >> choice;
 
 		if (cin.fail()) {
-			cout << "�߸��� �Է��Դϴ�. ���ڸ� �Է����ּ���." << endl << endl;
+			cout << "잘못된 입력입니다. 숫자를 입력해주세요." << endl << endl;
 			cin.clear();
 			cin.ignore(10000, '\n');
 			continue;
@@ -93,28 +93,28 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 		{
 		case 1:
 		{
-			// ������ ���� ����
-			cout << "������ ���� ��ȣ�� �����ϼ���: ";
+			// 공격할 몬스터 선택
+			cout << "공격할 몬스터 번호를 선택하세요: ";
 			int targetIndex;
 			cin >> targetIndex;
 
 			if (targetIndex < 1 || targetIndex > monsters.size())
 			{
-				cout << "�߸��� �����Դϴ�." << endl;
+                cout << "잘못된 입력입니다." << endl;
 				continue;
 			}
 
 			Monster* target = monsters[targetIndex - 1];
 
-			// �÷��̾� ����
-			cout << Player->getName() << "��(��) " << target->getName() << "��(��) �����մϴ�! ";
+			// 플레이어 공격
+			cout << Player->getName() << "가(이) " << target->getName() << "를(을) 공격합니다! ";
 			target->takeDamage(Player->getAttack());
 
 			if (target->getHealth() <= 0)
 			{
-				cout << target->getName() << " óġ!" << endl;
-				logger->logBattle(target->getName(), true);  // �α� �߰�
-				totalExp += 50;  // ���ʹ� 50 ����ġ
+				cout << target->getName() << " 처치!" << endl;
+				logger->logBattle(target->getName(), true);  // 로그 추가
+				totalExp += 50;  // 몬스터당 50 경험치
 				defeatedCount++;
 
 				delete target;
@@ -122,33 +122,33 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 
 				if (monsters.empty())
 				{
-					cout << endl << "��� ���͸� óġ�߽��ϴ�!" << endl;
-					cout << "�� " << defeatedCount << "���� óġ!" << endl;
-					reward(Player, totalExp);  // �� ����ġ �ѹ��� ����
+					cout << endl << "모든 몬스터를 처치하였습니다!" << endl;
+					cout << "총 " << defeatedCount << "마리 처치!" << endl;
+					reward(Player, totalExp);  // 총 경험치 한번에 지급
 					return;
 				}
 			}
 			else
 			{
-				cout << target->getName() << " ü��: " << target->getHealth() << endl;
+				cout << target->getName() << " 체력: " << target->getHealth() << endl;
 			}
 
-			// ���� ���͵��� �ݰ�
-			cout << endl << "--- ���͵��� �ݰ�! ---" << endl;
+			// 남은 몬스터들의 반격
+			cout << endl << "--- 몬스터들의 반격! ---" << endl;
 			for (Monster* monster : monsters)
 			{
-				cout << monster->getName() << "��(��) " << Player->getName() << "��(��) �����մϴ�! ";
+				cout << monster->getName() << "가(이) " << Player->getName() << "를(을) 공격합니다! ";
 				int tempHealth = Player->getHealth();
 				Player->takeDamage(monster->getAttack());
-				cout << "������: " << monster->getAttack()
-					<< " (ü��: " << tempHealth << " -> " << Player->getHealth() << ")" << endl;
+				cout << "공격력: " << monster->getAttack()
+					<< " (체력: " << tempHealth << " -> " << Player->getHealth() << ")" << endl;
 
 				if (Player->getHealth() <= 0)
 				{
-					cout << Player->getName() << "�� ���������ϴ�. ���� ����!" << endl;
-					logger->logBattle("��������", false);  // �α� �߰�
+					cout << Player->getName() << "가 사망하였습니다. 게임 오버!" << endl;
+					logger->logBattle("플레이어 사망", false);  // 로그 추가
 
-					// �޸� ����
+					// 메모리 해제
 					for (Monster* m : monsters)
 					{
 						delete m;
@@ -170,9 +170,9 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 
 		case 3:
 		{
-			cout << "������ �����մϴ�." << endl;
+			cout << "게임을 종료합니다." << endl;
 
-			// �޸� ����
+			// 메모리 해제
 			for (Monster* m : monsters)
 			{
 				delete m;
@@ -184,7 +184,7 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 		}			
 
 		default:
-			cout << "�߸��� �����Դϴ�. 1 �Ǵ� 2�� �������ּ���." << endl;
+			cout << "잘못된 선택입니다. 1 또는 2를 입력해주세요." << endl;
 			break;
 		}
 
@@ -192,26 +192,26 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 	}
 }
 
-// ���� ���� ���� (������ battle �޼ҵ�)
+// 단일 몬스터 전투 (기존 battle 함수)
 void GameManager::battle(Character* Player)
 {
 	GameLogger* logger = GameLogger::getInstance();
 
-	// 30% Ȯ���� ���� ���� ����
+	// 30% 확률로 다중 몬스터 전투
 	int battleType = randNum(1, 10);
 
-	if (battleType <= 3)  // 30% Ȯ��
+	if (battleType <= 3)  // 30% 확률
 	{
-		cout << "!! ���: �ټ��� ���� ���� !!" << endl;
+		cout << "!! 경고: 다중 몬스터 전투 발생 !!" << endl;
 		vector<Monster*> monsters = generateMultipleMonsters(Player->getLevel());
 		multiBattle(Player, monsters);
 	}
-	else  // 70% Ȯ���� ���� ���� ����
+	else  // 70% 확률로 단일 몬스터 전투
 	{
 		int tempHealth;
 		Monster* monster = generateMonster(Player->getLevel());
-		cout << "�߻� " << monster->getName() << " ����! ü��: " << monster->getHealth()
-			<< ", ���ݷ�: " << monster->getAttack() << endl;
+		cout << "출현 " << monster->getName() << " 등장! 체력: " << monster->getHealth()
+			<< ", 공격력: " << monster->getAttack() << endl;
 
 		while (true)
 		{
@@ -220,7 +220,7 @@ void GameManager::battle(Character* Player)
 			cin >> choice;
 
 			if (cin.fail()) {
-				cout << "�߸��� �Է��Դϴ�. ���ڸ� �Է����ּ���." << endl << endl;
+				cout << "잘못된 입력입니다. 숫자를 입력해주세요." << endl << endl;
 				cin.clear();
 				cin.ignore(10000, '\n');
 				continue;
@@ -229,43 +229,41 @@ void GameManager::battle(Character* Player)
 			switch (choice)
 			{
 			case 1:
-			{	// �÷��̾� ����
-				cout << Player->getName() << "��(��) " << monster->getName() << "��(��) �����մϴ�! ";
+			{	// 플레이어 공격
+				cout << Player->getName() << "가(이) " << monster->getName() << "를(을) 공격합니다! ";
 				monster->takeDamage(Player->getAttack());
 
 				if (monster->getHealth() <= 0)
 				{
-					cout << monster->getName() << " óġ!" << endl;
-					logger->logBattle(monster->getName(), true);  // �α� �߰�
+					cout << monster->getName() << " 처치!" << endl;
+					logger->logBattle(monster->getName(), true);  // 로그 추가
 					delete monster;
 					reward(Player, 50);
 					return;
 				}
 				else
 				{
-					cout << monster->getName() << " ü��: " << monster->getHealth() << endl;
+					cout << monster->getName() << " 체력: " << monster->getHealth() << endl;
 				}
 
-				// ���� ����
-				cout << monster->getName() << "��(��) " << Player->getName() << "��(��) �����մϴ�! ";
+				// 몬스터 반격
+				cout << monster->getName() << "가(이) " << Player->getName() << "를(을) 공격합니다! ";
 				tempHealth = Player->getHealth();
 				Player->takeDamage(monster->getAttack());
 
 				if (Player->getHealth() <= 0)
 				{
-					cout << Player->getName() << " ü��: " << tempHealth << " -> " << Player->getHealth() << endl;
-					cout << Player->getName() << "�� ���������ϴ�. ���� ����!" << endl;
-					logger->logBattle(monster->getName(), false);  // �α� �߰�
+					cout << Player->getName() << " 체력: " << tempHealth << " -> " << Player->getHealth() << endl;
+					cout << Player->getName() << "가 사망하였습니다. 게임 오버!" << endl;
+					logger->logBattle(monster->getName(), false);  // 로그 추가
 					delete monster;
 					exit(0);
 				}
 				else
 				{
-					cout << Player->getName() << " ü��: " << Player->getHealth() << endl;
+					cout << Player->getName() << " 체력: " << Player->getHealth() << endl;
 				}
 				break;
-			}
-
 			}
 				
 			case 2:
@@ -277,13 +275,13 @@ void GameManager::battle(Character* Player)
 
 			case 3:
 			{
-				cout << "������ �����մϴ�." << endl;
+				cout << "게임을 종료합니다." << endl;
 				delete monster;
 				exit(0);
 				break;
 			}
 			default:
-				cout << "�߸��� �����Դϴ�. 1 �Ǵ� 2�� �������ּ���." << endl;
+				cout << "잘못된 선택입니다. 1 또는 2를 입력해주세요." << endl;
 				break;				
 			}
 		}
@@ -292,9 +290,9 @@ void GameManager::battle(Character* Player)
 
 void GameManager::displayInventory(Character* Player)
 {
-	// �κ��丮 ���÷��� �ý���
-	cout << "=== �κ��丮 ===" << endl;
-	cout << "��� �̱���" << endl;
+	// 인벤토리 간단 출력 시스템
+	cout << "=== 인벤토리 ===" << endl;
+	cout << "현재 아이템" << endl;
 }
 
 void GameManager::reward(Character* Player, int exp)
@@ -302,24 +300,25 @@ void GameManager::reward(Character* Player, int exp)
 	GameLogger* logger = GameLogger::getInstance();
 	int ran = randNum(20, 30);
 
-	// ����ġ �� ��� ���� �ý���
+	// 경험치 및 골드 지급 시스템
 	Player->setExperience(exp);
 	Player->setGold(ran);
 
-	// �α� ���
+	// 로그 기록
 	logger->logExpEarned(exp);
 	logger->logGoldEarned(ran);
 
-	cout << "���� �¸� : ����ġ " << exp << " ȹ��, ���: " << ran << "G ȹ��!" << endl;
+	cout << "전투 보상 : 경험치 " << exp << " 획득, 골드: " << ran << "G 획득!" << endl;
 
-	// ������ ȹ�� Ȯ�� 30%
+	// 아이템 획득 확률 30%
 	ran = randNum(1, 10);
-	if (ran >= 1 && ran <= 3) {
-		cout << "������ ȹ��!" << endl;
-		logger->logItemFound("���� ������");
+	if (ran >= 1 && ran <= 3) 
+	{
+		cout << "아이템 획득!" << endl;
+		logger->logItemFound("특별 아이템");
 	}
 	else
-		cout << "������ ȹ�� ����!" << endl;
+		cout << "아이템 획득 실패!" << endl;
 }
 
 int GameManager::randNum(int min, int max)

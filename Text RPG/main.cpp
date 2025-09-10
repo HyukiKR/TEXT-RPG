@@ -1,4 +1,4 @@
-#include "GameManager.h"
+ï»¿#include "GameManager.h"
 #include "GameLogger.h"
 #include <iostream>
 #include "Character.h"
@@ -19,16 +19,16 @@ int main()
 	GameLogger* logger = GameLogger::getInstance();
 	Monster* monster = nullptr;
 
-    Intro().displayIntro(); //ÀÎÆ®·Î È­¸é Ãâ·Â
+    Intro().displayIntro(); //ì¸íŠ¸ë¡œ í™”ë©´ ì¶œë ¥
 
-	cout << "Ä³¸¯ÅÍ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä: ";
+	cout << "ìºë¦­í„° ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”: ";
 	string name;
 	cin >> name;
 
 	int job_choice = 0;
 	for (;;)
 	{
-		cout << "¿øÇÏ´Â Á÷¾÷À» ¼±ÅÃÇØÁÖ¼¼¿ä." << endl << "1. ±â»ç  2. ¿¬±İ¼ú»ç  3. ÇØÀû  4. ³óºÎ" << endl;
+		cout << "ì›í•˜ëŠ” ì§ì—…ì„ ì„ íƒí•´ì£¼ì„¸ìš”." << endl << "1. ê¸°ì‚¬  2. ì—°ê¸ˆìˆ ì‚¬  3. í•´ì   4. ë†ë¶€" << endl;
 		cin >> job_choice;
 		if (job_choice > 0 && job_choice < 5)
 		{
@@ -36,28 +36,28 @@ int main()
 		}
 		else
 		{
-			cout << "Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù" << endl;
+			cout << "ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤" << endl;
 		}
 	}
 
 	Character* player = Character::getInstance(name, job_choice);
-	logger->logJobSelected(player->getJobName());  // ·Î±× Ãß°¡
+	logger->logJobSelected(player->getJobName());  // ë¡œê·¸ ì¶”ê°€
 
-	cout << player->getJobName() << " " << name << " »ı¼º ¿Ï·á! ·¹º§: " << player->getLevel() << ", Ã¼·Â: " <<
-		player->getHealth() << ", °ø°İ·Â: " << player->getAttack() << endl << endl;
+	cout << player->getJobName() << " " << name << " ìƒì„± ì™„ë£Œ! ë ˆë²¨: " << player->getLevel() << ", ì²´ë ¥: " <<
+		player->getHealth() << ", ê³µê²©ë ¥: " << player->getAttack() << endl << endl;
 
-	// °ÔÀÓ ·çÇÁ
+	// ê²Œì„ ë£¨í”„
 	while (true) {
-		cout << "\n===== ¸ŞÀÎ ¸Ş´º =====\n";
-		cout << "1. ÀüÅõ\n";
-		cout << "2. »óÅÂ È®ÀÎ\n";
-		cout << "3. »óÁ¡\n";
-		cout << "4. ÀÎº¥Åä¸®\n";
-		cout << "5. ·Î±× È®ÀÎ\n";
-		cout << "6. ÀüÅõ ±â·Ï\n";
-		cout << "7. ·Î±× ÀúÀå\n";
-		cout << "8. Á¾·á\n";
-		cout << "¼±ÅÃ: ";
+		cout << "\n===== ë©”ì¸ ë©”ë‰´ =====\n";
+		cout << "1. ì „íˆ¬\n";
+		cout << "2. ìƒíƒœ í™•ì¸\n";
+		cout << "3. ìƒì \n";
+		cout << "4. ì¸ë²¤í† ë¦¬\n";
+		cout << "5. ë¡œê·¸ í™•ì¸\n";
+		cout << "6. ì „íˆ¬ ê¸°ë¡\n";
+		cout << "7. ë¡œê·¸ ì €ì¥\n";
+		cout << "8. ì¢…ë£Œ\n";
+		cout << "ì„ íƒ: ";
 
 		int choice;
 		cin >> choice;
@@ -94,12 +94,12 @@ int main()
 			break;
 		case 8:
 			logger->saveLogsToFile();
-			cout << "°ÔÀÓÀ» Á¾·áÇÕ´Ï´Ù.\n";
+			cout << "ê²Œì„ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.\n";
 			return 0;
 		default:
-			cout << "Àß¸øµÈ ¼±ÅÃÀÔ´Ï´Ù.\n";
+			cout << "ì˜ëª»ëœ ì„ íƒì…ë‹ˆë‹¤.\n";
 		}
 	}
 
 	return 0;
-}}
+}
