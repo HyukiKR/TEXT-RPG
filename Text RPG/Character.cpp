@@ -1,4 +1,5 @@
 #include "Character.h"
+#include "GameLogger.h"
 #include "Knight.h"
 #include "Alchemist.h"
 #include "Pirate.h"
@@ -59,6 +60,7 @@ void Character::levelUp()
 		health = maxHealth;
 		attack += level * 5;
 		cout << "레벨업! 현재 레벨: " << level << endl;
+		GameLogger::getInstance()->logLevelUp(level);  // 로그 추가
 	}
 	else
 	{
