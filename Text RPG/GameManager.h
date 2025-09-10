@@ -8,7 +8,14 @@
 #include "Troll.h"
 #include "Orc.h"
 #include "Slime.h"
-#include "inventory.h"
+#include "Zombie.h"
+#include "SkeletonWarrior.h"
+#include "Lizardmen.h"
+#include "Magmagollem.h"
+#include "Wolf.h"
+#include "Imp.h"
+#include "Dragon.h"
+#include "Demonlord.h"
 #include <vector>
 
 class GameManager {

@@ -5,6 +5,8 @@ using namespace std;
 
 Troll::Troll(int level) {
 	name = "Troll";
+	intro = "트롤왕이 나가신다 길을 비켜라";
+	deathline = "내가 트롤왕인데...";
 	health = level * randNum(20, 30);
 	attack = level * randNum(5, 10);
 }
@@ -21,6 +23,13 @@ int Troll::getAttack() {
 	return attack;
 }
 
+string Troll::getIntro() {
+	return intro;
+}
+string Troll::getDeathLine() {
+	return deathline;
+}
+
 int Troll::randNum(int min, int max) {
 	random_device rd;
 	mt19937 gen(rd());
@@ -28,7 +37,11 @@ int Troll::randNum(int min, int max) {
 	return dist(gen);
 }
 
+
+
+
 void Troll::takeDamage(int damage) {
+
 	health -= damage;
 	if (health < 0)
 	{
