@@ -6,6 +6,7 @@
 #include "Farmer.h"
 #include <iostream>
 #include <random>
+#include "inventory.h"
 
 //생성자와 소멸자 정의
 Character::Character(string t_name)
@@ -171,3 +172,12 @@ int Character::getGold() const
 {
 	return gold;
 }
+
+Inventory& Character::getInventory() {
+	return *inventory;   // 포인터를 참조로 변환
+}
+
+const Inventory& Character::getInventory() const {
+	return *inventory;
+}
+

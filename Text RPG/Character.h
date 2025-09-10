@@ -6,6 +6,8 @@
 #include <vector>
 using namespace std;
 
+class Inventory;
+
 class Character {
 protected:
 	static Character* instance;
@@ -21,6 +23,8 @@ protected:
 
 	Character(string t_name);
 	~Character();
+
+	Inventory* inventory;
 
 	int randNum(int a = 0, int b = 0);
 
@@ -49,7 +53,8 @@ public:
 	int getAttack() const;
 	int getExperience() const;
 	int getGold() const;
-
+	Inventory& getInventory();
+	const Inventory& getInventory() const;  // const 참조 반환
 
 	//set
 	void setExperience(int exp);
