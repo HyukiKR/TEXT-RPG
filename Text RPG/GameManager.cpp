@@ -30,7 +30,7 @@ void displayAfterBattleChoice()
 
 Monster* GameManager::generateMonster(int level)
 {
-	int ran = randNum(0, 9);
+	int ran = randNum(0, 8);
 
 	switch (ran)
 	{
@@ -52,8 +52,6 @@ Monster* GameManager::generateMonster(int level)
 		return new Wolf(level);
 	case 8:
 		return new Magmagollem(level);
-	default:
-		return nullptr;
 	}
 }
 
