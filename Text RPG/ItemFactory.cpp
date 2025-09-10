@@ -1,9 +1,6 @@
 #include "Item.h"
 #include "ItemFactory.h"
-#include "Alchemist.h"
-#include "Knight.h"
-#include "Pirate.h"
-#include "Farmer.h"
+
 
 std::vector<Item> ItemFactory::getAlchemistItems() {
 	return{
@@ -15,7 +12,7 @@ std::vector<Item> ItemFactory::getAlchemistItems() {
 		Item("Explosive Potion",
 			"폭발적인 힘을 일시적으로 부여하는 포션",
 			"폭발 포션을 마셨습니다!",
-			ItemType::HEALTH_POTION, 25, 80, "연금술사"),
+			ItemType::ATTACK_BOOST, 25, 80, "연금술사"),
 
 		Item("Mana Crystal",
 			"마나가 응축된 강력한 회복력을 제공",
@@ -126,4 +123,20 @@ std::vector<Item> ItemFactory::getAllAttackBoosts() {
 	}
 
 	return attackBoosts;
+}
+
+//스킬스크롤
+std::vector<Item> ItemFactory::getScrolls()
+{
+	return {
+		Item("Fireball Scroll",
+			"불덩이를 발사 마법 스크롤",
+			"거대한 불덩이가 적을 덮쳤습니다!",
+			ItemType::SCROLL, 50, 40, "전체 직업"),
+
+		Item("Healing Scroll",
+			"즉시 체력 회복 마법 스크롤",
+			"상처가 치유됩니다!",
+			ItemType::SCROLL, 30, 50, "전체 직업")
+	};
 }

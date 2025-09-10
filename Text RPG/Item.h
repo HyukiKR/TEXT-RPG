@@ -7,7 +7,8 @@ class Character; //전방선언
 
 enum class ItemType {
 	HEALTH_POTION, // 체력 회복
-	ATTACK_BOOST	// 공격력 강화
+	ATTACK_BOOST,	// 공격력 강화
+	SCROLL //스크롤 스킬
 };
 
 class Item {
@@ -32,6 +33,7 @@ public:
 	int getPrice() const { return price_; }
 	int geteffect_value() const { return effect_value_; }
 	int getSellPrice() const { return static_cast<int>(price_ * 0.6); }
+	std::string getAssociatedClass() const { return associatedClass_; }
 
 	//아이템 사용 함수 (효과 메시지)
 	void use(Character* character) const;

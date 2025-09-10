@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include "Item.h"
 
 class Item; //전방선언
 
@@ -18,5 +19,8 @@ public:
 	//타입별 아이템 가져오기
 	static std::vector<Item> getAllHealthPotions();
 	static std::vector<Item> getAllAttackBoosts();
+
+	//스크롤스킬
+	static std::vector<Item> getScrolls();
 };
 
