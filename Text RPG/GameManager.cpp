@@ -18,6 +18,16 @@ void displayBattleChoice()
 	cout << "선택: ";
 }
 
+void displayAfterBattleChoice()
+{
+	cout << endl << "===== 전투 승리! =====" << endl;
+	cout << "무엇을 하시겠습니까?" << endl;
+	cout << "1. 상점 방문" << endl;
+	cout << "2. 다음 전투 진행" << endl;
+	cout << "======================" << endl;
+	cout << "선택: ";
+}
+
 Monster* GameManager::generateMonster(int level)
 {
 	int ran = randNum(0, 9);
@@ -47,6 +57,63 @@ Monster* GameManager::generateMonster(int level)
 	}
 }
 
+void GameManager::handleAfterBattle(Character* Player)
+{
+	while (true)
+	{
+		displayAfterBattleChoice();
+		int choice;
+		cin >> choice;
+
+		if (cin.fail()) {
+			cout << "잘못된 입력입니다. 숫자를 입력해주세요." << endl;
+			cin.clear();
+			cin.ignore(10000, '\n');
+			continue;
+		}
+
+		switch (choice)
+		{
+		case 1: // 상점 방문
+		{
+			Shop shop;
+
+			// 직업별로 상점 재고 설정
+			string jobName = Player->getJobName();
+			if (jobName == "기사" || jobName == "Knight") {
+				shop.setStockForJob(Job::Knight, 2, 2);
+			}
+			else if (jobName == "연금술사" || jobName == "Alchemist") {
+				shop.setStockForJob(Job::Alchemist, 3, 2);  // 연금술사는 아이템이 더 많음
+			}
+			else if (jobName == "해적" || jobName == "Pirate") {
+				shop.setStockForJob(Job::Pirate, 2, 2);
+			}
+			else if (jobName == "농부" || jobName == "Farmer") {
+				shop.setStockForJob(Job::Farmer, 2, 2);
+			}
+
+			int playerGold = Player->getGold();
+			Inventory inv;  // 실제로는 Player의 인벤토리를 가져와야 함
+			shop.open(playerGold, inv);
+			Player->setGold(playerGold);  // 골드 업데이트
+
+			cout << "\n상점을 나왔습니다. 다음 전투로 진행합니다..." << endl;
+			cout << "======================================\n" << endl;
+			battle(Player);  // 상점 후 자동으로 다음 전투
+			return;
+		}
+		case 2: // 다음 전투 진행
+			cout << "\n다음 전투로 진행합니다..." << endl;
+			cout << "======================================\n" << endl;
+			battle(Player);
+			return;
+		default:
+			cout << "잘못된 선택입니다. 1 또는 2를 선택해주세요." << endl;
+			break;
+		}
+	}
+}
 
 // 여러 몬스터 생성 메소드
 vector<Monster*> GameManager::generateMultipleMonsters(int playerLevel)
@@ -136,6 +203,9 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 					cout << endl << "모든 몬스터를 처치하였습니다!" << endl;
 					cout << "총 " << defeatedCount << "마리 처치!" << endl;
 					reward(Player, totalExp);  // 총 경험치 한번에 지급
+
+					// 전투 후 선택
+					handleAfterBattle(Player);
 					return;
 				}
 			}
@@ -252,6 +322,9 @@ void GameManager::battle(Character* Player)
 					logger->logBattle(monster->getName(), true);  // 로그 추가
 					delete monster;
 					reward(Player, 50);
+
+					// 전투 후 선택
+					handleAfterBattle(Player);
 					return;
 				}
 				else
