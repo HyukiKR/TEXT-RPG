@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="소스 파일\몬스터 소스 파일">
-      <UniqueIdentifier>{8fd6dd4c-9dff-4874-9db7-66db7444d249}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\캐릭터 소스 파일">
       <UniqueIdentifier>{7976593a-a845-4755-b0da-e71b131184a2}</UniqueIdentifier>
     </Filter>
@@ -43,22 +40,25 @@
     <Filter Include="소스 파일\아이템 소스 파일">
       <UniqueIdentifier>{f75805e3-8def-44f6-8531-0c8ceef7b3a1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\게임매니저 소스 파일\몬스터 소스 파일">
+      <UniqueIdentifier>{8fd6dd4c-9dff-4874-9db7-66db7444d249}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Goblin.cpp">
-      <Filter>소스 파일\몬스터 소스 파일</Filter>
+      <Filter>소스 파일\게임매니저 소스 파일\몬스터 소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Orc.cpp">
-      <Filter>소스 파일\몬스터 소스 파일</Filter>
+      <Filter>소스 파일\게임매니저 소스 파일\몬스터 소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Troll.cpp">
-      <Filter>소스 파일\몬스터 소스 파일</Filter>
+      <Filter>소스 파일\게임매니저 소스 파일\몬스터 소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Slime.cpp">
-      <Filter>소스 파일\몬스터 소스 파일</Filter>
+      <Filter>소스 파일\게임매니저 소스 파일\몬스터 소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Character.cpp">
       <Filter>소스 파일\캐릭터 소스 파일</Filter>
@@ -91,34 +91,37 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Demonlord.cpp">
-      <Filter>소스 파일\몬스터 소스 파일</Filter>
+      <Filter>소스 파일\게임매니저 소스 파일\몬스터 소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Dragon.cpp">
-      <Filter>소스 파일\몬스터 소스 파일</Filter>
+      <Filter>소스 파일\게임매니저 소스 파일\몬스터 소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Lizardmen.cpp">
-      <Filter>소스 파일\몬스터 소스 파일</Filter>
+      <Filter>소스 파일\게임매니저 소스 파일\몬스터 소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Magmagollem.cpp">
-      <Filter>소스 파일\몬스터 소스 파일</Filter>
+      <Filter>소스 파일\게임매니저 소스 파일\몬스터 소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Wolf.cpp">
-      <Filter>소스 파일\몬스터 소스 파일</Filter>
+      <Filter>소스 파일\게임매니저 소스 파일\몬스터 소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Zombie.cpp">
-      <Filter>소스 파일\몬스터 소스 파일</Filter>
+      <Filter>소스 파일\게임매니저 소스 파일\몬스터 소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Skeletonwarrior.cpp">
-      <Filter>소스 파일\몬스터 소스 파일</Filter>
+      <Filter>소스 파일\게임매니저 소스 파일\몬스터 소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Imp.cpp">
-      <Filter>소스 파일\몬스터 소스 파일</Filter>
+      <Filter>소스 파일\게임매니저 소스 파일\몬스터 소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="GameManager.cpp">
       <Filter>헤더 파일\게임매니저 헤더 파일</Filter>
     </ClCompile>
     <ClCompile Include="GameLogger.cpp">
       <Filter>헤더 파일\게임매니저 헤더 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BossMonster.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -196,6 +199,12 @@
     </ClInclude>
     <ClInclude Include="GameManager.h">
       <Filter>소스 파일\게임매니저 소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="job.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BossMonster.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
