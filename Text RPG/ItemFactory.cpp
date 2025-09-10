@@ -137,6 +137,22 @@ std::vector<Item> ItemFactory::getScrolls()
 		Item("Healing Scroll",
 			"즉시 체력 회복 마법 스크롤",
 			"상처가 치유됩니다!",
-			ItemType::SCROLL, 30, 50, "전체 직업")
+			ItemType::SCROLL, 30, 50, "전체 직업"),
+
+		Item("Explosive Bullet Scroll",
+			"적에게 범위 피해를 입히는 폭발탄",
+			"주변 적들이 폭발에 휩싸였습니다!",
+			ItemType::SCROLL, 50, 40, "전체 직업"),
+
+		Item("Piercing shot Scroll",
+			"적 방어를 무시하는 강력한 관통탄",
+			"적 방어를 뚫고 강력한 피해를 입혔습니다!",
+			ItemType::SCROLL, 60, 50, "전체 직업"),
+
+		Item("Smoke Bomb Scroll",
+			"적 공격력 감소 및 회피율 증가",
+			"시야가 가려지고 적의 공격력이 감소합니다!",
+			ItemType::SCROLL, 35, 20, "전체 직업")
+
 	};
 }

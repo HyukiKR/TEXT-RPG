@@ -31,6 +31,16 @@ void Item::use(Character* character) const {
 			character->healHealth(effect_value_);
 			cout << "치유의 기운이 몸을 감쌉니다! 체력++ " << effect_value_ << endl;
 		}
+		// 몬스터 클래스에 호출하실건지..
+		else if (name_ == "Explosive Bullet Scroll") {
+			cout << "폭발탄이 주변 적들에게 퍼집니다! (데미지 " << effect_value_ << ")" << endl;
+		}
+		else if (name_ == "Explosive Bullet Scroll") {
+			cout << "관통탄이 적 방어를 무시하고 명중했습니다! (데미지 " << effect_value_ << ")" << endl;
+		}
+		else if (name_ == "Smoke Bomb Scroll") {
+			cout << "연막탄으로 시야가 가려지고, 적의 공격력이 감소합니다!" << endl;
+		}
 		else {
 			cout << "알 수 없는 스크롤입니다." << endl;
 		}
