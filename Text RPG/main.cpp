@@ -72,10 +72,26 @@ int main()
 		case 3:
 		{
 			Shop shop;
+
+			// 직업별로 상점 재고 설정
+			string jobName = player->getJobName();
+			if (jobName == "기사" || jobName == "Knight") {
+				shop.setStockForJob(Job::Knight, 2, 2);
+			}
+			else if (jobName == "연금술사" || jobName == "Alchemist") {
+				shop.setStockForJob(Job::Alchemist, 3, 2);
+			}
+			else if (jobName == "해적" || jobName == "Pirate") {
+				shop.setStockForJob(Job::Pirate, 2, 2);
+			}
+			else if (jobName == "농부" || jobName == "Farmer") {
+				shop.setStockForJob(Job::Farmer, 2, 2);
+			}
+
 			int playerGold = player->getGold();
 			Inventory inv;
 			shop.open(playerGold, inv);
-			player->setGold(playerGold - player->getGold());
+			player->setGold(playerGold);
 			break;
 		}
 		case 4:
