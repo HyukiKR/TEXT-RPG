@@ -1,5 +1,6 @@
 ﻿#include "GameManager.h"
 #include "GameLogger.h"
+#include "BossMonster.h"
 #include <iostream>
 #include <random>
 #include <vector>
@@ -18,6 +19,7 @@ void displayBattleChoice()
 	cout << "선택: ";
 }
 
+
 void displayAfterBattleChoice()
 {
 	cout << endl << "===== 전투 승리! =====" << endl;
@@ -28,9 +30,10 @@ void displayAfterBattleChoice()
 	cout << "선택: ";
 }
 
+
 Monster* GameManager::generateMonster(int level)
 {
-	int ran = randNum(0, 8);
+	int ran = randNum(0, 9);
 
 	switch (ran)
 	{
@@ -52,7 +55,13 @@ Monster* GameManager::generateMonster(int level)
 		return new Wolf(level);
 	case 8:
 		return new Magmagollem(level);
+
 	}
+}
+
+// 보스몬스터
+Monster* GameManager::generateBossMonster(int level) {
+	return new BossMonster(level); 
 }
 
 void GameManager::handleAfterBattle(Character* Player)
@@ -207,6 +216,9 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 					cout << "총 " << defeatedCount << "마리 처치!" << endl;
 					reward(Player, totalExp);  // 총 경험치 한번에 지급
 
+					monstersDefeated += defeatedCount; // 죽인 몬스터 수 증가
+					checkBossBattle(Player); // 보스 등장 체크
+
 					// 전투 후 선택
 					handleAfterBattle(Player);
 					return;
@@ -356,6 +368,9 @@ void GameManager::battle(Character* Player)
 					delete monster;
 					reward(Player, 50);
 
+					monstersDefeated++; // 한 마리 처치!
+					checkBossBattle(Player); // 보스 등장 체크
+
 					// 전투 후 선택
 					handleAfterBattle(Player);
 					return;
@@ -424,6 +439,92 @@ void GameManager::battle(Character* Player)
 				cout << "잘못된 선택입니다. 1 또는 2를 입력해주세요." << endl;
 				break;				
 			}
+		}
+	}
+}
+
+void GameManager::checkBossBattle(Character* Player)
+{
+	if (monstersDefeated >= bossThreshold)
+	{
+		cout << "\n!!! 경고: 마왕 등장 !!!\n" << endl;
+		Monster* boss = generateBossMonster(Player->getLevel() + 2);  // 레벨 약간 높게
+		cout << "마왕 " << boss->getName() << " 출현! 체력: " << boss->getHealth()
+			<< ", 공격력: " << boss->getAttack() << endl;
+
+		// 단일 보스 전투 진행
+		battleBoss(Player, boss);
+
+		// 보스 처치 후 카운트 초기화
+		monstersDefeated = 0;
+	}
+}
+
+// 보스 전용 전투 함수
+void GameManager::battleBoss(Character* Player, Monster* boss)
+{
+	GameLogger* logger = GameLogger::getInstance();
+	int tempHealth;
+
+	while (boss->getHealth() > 0 && Player->getHealth() > 0)
+	{
+		displayBattleChoice();
+		int choice;
+		cin >> choice;
+
+		if (cin.fail()) {
+			cout << "잘못된 입력입니다. 숫자를 입력해주세요." << endl;
+			cin.clear();
+			cin.ignore(10000, '\n');
+			continue;
+		}
+
+		switch (choice)
+		{
+		case 1:
+			// 플레이어 공격
+			cout << Player->getName() << "가 " << boss->getName() << "를 공격합니다! ";
+			boss->takeDamage(Player->getAttack());
+
+			if (boss->getHealth() <= 0)
+			{
+				cout << boss->getName() << " 처치!" << endl;
+				logger->logBattle(boss->getName(), true);
+				reward(Player, 200); // 보스 보상
+				delete boss;
+				return;
+			}
+			else
+				cout << boss->getName() << " 체력: " << boss->getHealth() << endl;
+
+			// 보스 반격
+			cout << boss->getName() << "가 " << Player->getName() << "를 공격합니다! ";
+			tempHealth = Player->getHealth();
+			Player->takeDamage(boss->getAttack());
+			cout << "공격력: " << boss->getAttack()
+				<< " (체력: " << tempHealth << " -> " << Player->getHealth() << ")" << endl;
+
+			if (Player->getHealth() <= 0)
+			{
+				cout << Player->getName() << "가 사망하였습니다. 게임 오버!" << endl;
+				logger->logBattle(boss->getName(), false);
+				delete boss;
+				exit(0);
+			}
+			break;
+
+		case 2:
+			Player->getInventory().showItemsSimple();
+			break;
+
+		case 3:
+			cout << "게임을 종료합니다." << endl;
+			delete boss;
+			exit(0);
+			break;
+
+		default:
+			cout << "잘못된 선택입니다. 1~3을 입력해주세요." << endl;
 		}
 	}
 }
