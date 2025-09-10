@@ -10,6 +10,19 @@ Farmer::Farmer(string t_name) : Character(t_name)
 	job_name = "농부";
 }
 
-void Farmer::passiveSkill() {}; // 농부는 성실하다...
+void Farmer::passiveSkill() {} // 농부는 성실하다...
 
+void Farmer::attackMassage()  // 농부의 공격
+{
+	int category = randNum(0, 1);
+
+	if (category == 0)
+	{
+		cout << "호미로 찍어버리자! " << endl;
+	}
+	else
+	{
+		cout << "괭이를 휘두르자! " << endl;
+	}
+}
 
