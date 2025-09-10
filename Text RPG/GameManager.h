@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #ifndef GAMEMANAGER_H
 #define GAMEMANAGER_H
 
@@ -16,14 +16,18 @@
 #include "Imp.h"
 #include "Dragon.h"
 #include "Demonlord.h"
+#include "Item.h"
+#include "Inventory.h"
+#include "shop.h"
 #include <vector>
 
 class GameManager {
 public:
 	Monster* generateMonster(int level);
-	std::vector<Monster*> generateMultipleMonsters(int playerLevel);  // Ãß°¡
+	void handleAfterBattle(Character* Player);
+	std::vector<Monster*> generateMultipleMonsters(int playerLevel);  // ì¶”ê°€
 	void battle(Character* Player);
-	void multiBattle(Character* Player, std::vector<Monster*>& monsters);  // Ãß°¡
+	void multiBattle(Character* Player, std::vector<Monster*>& monsters);  // ì¶”ê°€
 	void displayInventory(Character* Player);
 	void reward(Character* Player, int exp);
 	int randNum(int min, int max);
