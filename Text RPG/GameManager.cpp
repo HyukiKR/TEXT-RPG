@@ -20,7 +20,7 @@ void displayBattleChoice()
 
 Monster* GameManager::generateMonster(int level)
 {
-	int ran = randNum(0, 3);
+	int ran = randNum(0, 9);
 
 	switch (ran)
 	{
@@ -32,10 +32,21 @@ Monster* GameManager::generateMonster(int level)
 		return new Orc(level);
 	case 3:
 		return new Slime(level);
+	case 4:
+		return new Zombie(level);
+	case 5:
+		return new SkeletonWarrior(level);
+	case 6:
+		return new Lizardmen(level);
+	case 7:
+		return new Wolf(level);
+	case 8:
+		return new Magmagollem(level);
 	default:
 		return nullptr;
 	}
 }
+
 
 // 여러 몬스터 생성 메소드
 vector<Monster*> GameManager::generateMultipleMonsters(int playerLevel)
@@ -210,6 +221,8 @@ void GameManager::battle(Character* Player)
 	{
 		int tempHealth;
 		Monster* monster = generateMonster(Player->getLevel());
+
+		cout << "<<" << monster->getIntro() << ">>" << endl;
 		cout << "출현 " << monster->getName() << " 등장! 체력: " << monster->getHealth()
 			<< ", 공격력: " << monster->getAttack() << endl;
 

@@ -96,6 +96,30 @@
     <ClCompile Include="GameLogger_Version2.cpp">
       <Filter>헤더 파일\게임매니저 헤더 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Demonlord.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Dragon.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Lizardmen.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Magmagollem.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Wolf.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Zombie.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Skeletonwarrior.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Imp.cpp">
+      <Filter>소스 파일\몬스터 소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Monster.h">
@@ -148,6 +172,30 @@
     </ClInclude>
     <ClInclude Include="GameLogger.h">
       <Filter>소스 파일\게임매니저 소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Demonlord.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Dragon.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Skeletonwarrior.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Wolf.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Zombie.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Lizardmen.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Magmagollem.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Imp.h">
+      <Filter>헤더 파일\몬스터 헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

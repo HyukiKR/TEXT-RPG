@@ -140,6 +140,14 @@
     <ClCompile Include="shop.cpp" />
     <ClCompile Include="Slime.cpp" />
     <ClCompile Include="Troll.cpp" />
+    <ClCompile Include="Demonlord.cpp" />
+    <ClCompile Include="Dragon.cpp" />
+    <ClCompile Include="Lizardmen.cpp" />
+    <ClCompile Include="Magmagollem.cpp" />
+    <ClCompile Include="Wolf.cpp" />
+    <ClCompile Include="Zombie.cpp" />
+    <ClCompile Include="Skeletonwarrior.cpp" />
+    <ClCompile Include="Imp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Alchemist.h" />
@@ -159,6 +167,14 @@
     <ClInclude Include="Troll.h" />
     <ClInclude Include="Pirate.h" />
     <ClInclude Include="Farmer.h" />
+    <ClInclude Include="Demonlord.h" />
+    <ClInclude Include="Dragon.h" />
+    <ClInclude Include="Skeletonwarrior.h" />
+    <ClInclude Include="Wolf.h" />
+    <ClInclude Include="Zombie.h" />
+    <ClInclude Include="Lizardmen.h" />
+    <ClInclude Include="Magmagollem.h" />
+    <ClInclude Include="Imp.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

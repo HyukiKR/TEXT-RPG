@@ -1,10 +1,10 @@
 #pragma once
-#ifndef GOBLIN_H
-#define GOBLIN_H
+#ifndef Magmagollem_H
+#define Magmagollem_H
 
 #include "Monster.h"
 
-class Goblin : public Monster {
+class Magmagollem : public Monster {
 private:
 	string name;
 	string intro;
@@ -13,7 +13,7 @@ private:
 	int attack;
 
 public:
-	Goblin(int level);
+	Magmagollem(int level);
 	string getName();
 	int getHealth();
 	int getAttack();
@@ -23,4 +23,4 @@ public:
 	string getIntro();
 	string getDeathLine();
 };
-#endif // !GOBLIN_H
+#endif 
