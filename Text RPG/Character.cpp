@@ -18,10 +18,13 @@ Character::Character(string t_name)
 	attack = 10;
 	experience = 0;
 	gold = 0;
+
+	inventory = new Inventory();
 }
 Character::~Character()
 {
 	delete instance;
+	delete inventory;
 }
 
 //정적 메소드: 유일한 캐릭터 인스턴트를 반환

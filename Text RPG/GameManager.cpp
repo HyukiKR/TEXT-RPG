@@ -92,7 +92,7 @@ void GameManager::handleAfterBattle(Character* Player)
 			}
 
 			int playerGold = Player->getGold();
-			Inventory inv;  // 실제로는 Player의 인벤토리를 가져와야 함
+			Inventory& inv = Player->getInventory();  // 실제로는 Player의 인벤토리를 가져와야 함
 			shop.open(playerGold, inv);
 			Player->setGold(playerGold);  // 골드 업데이트
 
@@ -242,7 +242,7 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 
 		case 2:
 		{
-			Inventory inv;
+			Inventory& inv = Player->getInventory();
 			inv.showItemsSimple();
 			break;
 		}
@@ -352,7 +352,7 @@ void GameManager::battle(Character* Player)
 				
 			case 2:
 			{
-				Inventory inv;
+				Inventory& inv = Player->getInventory();
 				inv.showItemsSimple();
 				break;
 			}
