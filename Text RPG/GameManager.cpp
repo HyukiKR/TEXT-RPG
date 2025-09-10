@@ -103,8 +103,24 @@ void GameManager::handleAfterBattle(Character* Player)
 		case 1: // 상점 방문
 		{
 			Shop shop;
+
+			// 직업별로 상점 재고 설정
+			string jobName = Player->getJobName();
+			if (jobName == "기사" || jobName == "Knight") {
+				shop.setStockForJob(Job::Knight, 2, 2);
+			}
+			else if (jobName == "연금술사" || jobName == "Alchemist") {
+				shop.setStockForJob(Job::Alchemist, 3, 2);  // 연금술사는 아이템이 더 많음
+			}
+			else if (jobName == "해적" || jobName == "Pirate") {
+				shop.setStockForJob(Job::Pirate, 2, 2);
+			}
+			else if (jobName == "농부" || jobName == "Farmer") {
+				shop.setStockForJob(Job::Farmer, 2, 2);
+			}
+
 			int playerGold = Player->getGold();
-			Inventory inv;
+			Inventory inv;  // 실제로는 Player의 인벤토리를 가져와야 함
 			shop.open(playerGold, inv);
 			Player->setGold(playerGold);  // 골드 업데이트
 
