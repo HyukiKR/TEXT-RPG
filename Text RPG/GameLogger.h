@@ -1,4 +1,7 @@
 #pragma once
+#ifndef GAMELOGGER_H
+#define GAMELOGGER_H
+
 #include <string>
 #include <vector>
 #include <ctime>
