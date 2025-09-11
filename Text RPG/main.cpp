@@ -1,20 +1,31 @@
-﻿#include <iostream>
-#include <windows.h>
-#include "GameManager.h"
+﻿#include "GameManager.h"
 #include "GameLogger.h"
+#include <iostream>
+#include "Character.h"
 #include "Knight.h"
 #include "Alchemist.h"
 #include "Pirate.h"
 #include "Farmer.h"
-#include "UI.h"
+#include "Shop.h"
+
+// ▼ BGM용 헤더/링크 추가
+#include <windows.h>
+#include <mmsystem.h>
+#pragma comment(lib, "winmm.lib")
 
 using namespace std;
 
-Character* Character::instance = nullptr;
+// [파일 배치 안내]
+// 빌드 후 생성된 .exe 와 같은 폴더에 moon.wav 를 둡니다.
+// 예) x64/Debug/YourGame.exe
+//     x64/Debug/moon.wav
 
+Character* Character::instance = nullptr;
 
 int main()
 {
+	// ▼ 프로그램 시작과 동시에 BGM 무한 루프 (비동기)
+	PlaySoundW(L"moon.wav", NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 	GameManager gameManager;
 	UI UI;
 	GameLogger* logger = GameLogger::getInstance();
@@ -64,11 +75,14 @@ int main()
 		case 8:
 			logger->saveLogsToFile();
 			cout << "게임을 종료합니다.\n";
+			// ▼ 종료 직전 BGM 정지
+			PlaySoundW(NULL, NULL, 0);
 			return 0;
 		default:
 			cout << "잘못된 선택입니다.\n";
 		}
 	}
-
+	// (안전 차원에서 한 번 더 정지)
+	PlaySoundW(NULL, NULL, 0);
 	return 0;
 }
