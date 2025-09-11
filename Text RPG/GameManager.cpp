@@ -139,6 +139,8 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 
 			cout << "전투 결과" << endl;
 			cout << "======================" << endl << endl;
+			Player->attackMassage();
+			cout << "\n\n";
 			cout << "> " << Player->getName() << "가(이) " << target->getName() << "를(을) 상대로 공격합니다." << endl;
 			cout << "> " << target->getName() << "는(은) ";
 			ui.SetColor(12);
@@ -212,6 +214,12 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 			ui.SetColor(15);
 
 			cout << endl << "======================" << endl << endl;
+
+			//턴 종료시 패시브 스킬 발동 및 공격력 부스트, 디버프 초기화
+			Player->passiveSkill();
+			Player->boostAttack(0);
+			debuff = 0;
+
 			system("pause");
 			break;
 		}
@@ -233,7 +241,7 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 					monster->takeDamage(scroll);
 
 					if (monster->getHealth() <= 0)
-					{
+					{						
 						cout << monster->getName() << " 처치!" << endl;
 						logger->logBattle(monster->getName(), true);  // 로그 추가
 						totalExp += 50;  // 몬스터당 50 경험치
@@ -253,13 +261,18 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 					monsters.erase(std::remove(monsters.begin(), monsters.end(), m), monsters.end());
 				}
 
+				system("pause");
+				system("cls");
+
 				//몬스터 처치여부 확인
 				if (monsters.empty())
-				{
+				{					
 					cout << endl << "모든 몬스터를 처치하였습니다!" << endl;
 					cout << "총 " << defeatedCount << "마리 처치!" << endl;
 					reward(Player, totalExp);  // 총 경험치 한번에 지급
 
+					system("pause");
+				
 					// 전투 후 선택
 					handleAfterBattle(Player);
 					return;
@@ -272,6 +285,7 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 			}
 
 			Player->setScroll(0);
+			
 			break;
 		}
 
@@ -351,6 +365,8 @@ void GameManager::battle(Character* Player)
 
 				cout << "전투 결과" << endl;
 				cout << "======================" << endl << endl;
+				Player->attackMassage();
+				cout << "\n\n";
 				cout << "> " << Player->getName() << "가(이) " << monster->getName() << "를(을) 상대로 공격합니다." << endl;
 				cout << "> " << monster->getName() << "는(은) ";
 				ui.SetColor(12);
@@ -405,6 +421,12 @@ void GameManager::battle(Character* Player)
 					exit(0);
 				}
 				cout << endl << "======================" << endl << endl;
+
+				//턴 종료시 패시브 스킬 발동 및 공격력 부스트, 디버프 초기화
+				Player->passiveSkill();
+				Player->boostAttack(0);
+				debuff = 0;
+
 				system("pause");
 				break;
 			}
@@ -421,19 +443,23 @@ void GameManager::battle(Character* Player)
 					monster->takeDamage(scroll);
 
 					if (monster->getHealth() <= 0)
-					{
+					{						
 						cout << monster->getName() << " 처치!" << endl;
 						logger->logBattle(monster->getName(), true);  // 로그 추가
 						delete monster;
 						reward(Player, 50);
 
+						system("pause");
+						system("cls");
+						
 						// 전투 후 선택
 						handleAfterBattle(Player);
 						return;
 					}
 					else
-					{
+					{						
 						cout << monster->getName() << " 체력: " << monster->getHealth() << endl;
+						system("pause");						
 					}
 				}
 				else if (scroll < 0) // 몬스터 공격력 디버프
