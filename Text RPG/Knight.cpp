@@ -15,14 +15,7 @@ void Knight::passiveSkill() // 매 턴 체력을 최대체력의 3%정도 회복
 	int heal = maxHealth / 30;
 
 	health += heal;
-	
-	if (health > maxHealth)
-	{
-		heal = health - maxHealth;
-		health = maxHealth;
-	}
-
-	cout << name << "은(는) 상처를 극복하고 체력을 " << heal << " 회복했다!" << endl;
+	cout << name << "은(는) 체력을 " << heal << " 회복했다!" << endl;
 }
 
 void Knight::attackMassage() // 기사의 공격

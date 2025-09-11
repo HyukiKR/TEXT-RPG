@@ -18,8 +18,7 @@ Character::Character(string t_name)
 	attack = 10;
 	experience = 0;
 	gold = 0;
-	scroll = 0;
-	attackBoost = 0;
+
 	inventory = new Inventory();
 }
 Character::~Character()
@@ -44,12 +43,15 @@ Character* Character::getInstance(const string name, int job)
 //캐릭터 상태창 디스플레이
 void Character::displayStatus() const
 {
+	system("cls");
 	cout << endl << "이름: " << name << endl;
 	cout << "레벨: " << level << endl;
 	cout << "체력: " << health << "/" << maxHealth << endl;
 	cout << "공격력: " << attack << endl;
 	cout << "경험치: " << experience << endl;
 	cout << "골드: " << gold << endl;
+
+	system("pause");
 }
 
 //레벨업 메소드
@@ -93,16 +95,12 @@ void Character::useItem(const int index)
 void Character::healHealth(const int heal)
 {
 	health += heal;
-	if (health > maxHealth)
-	{
-		health = maxHealth;
-	}
 }
 
-//추가 공격력 
+//공격력 증가
 void Character::boostAttack(const int boost)
 {
-	attackBoost = boost;
+	attack += boost;
 }
 
 //set 함수
@@ -127,7 +125,6 @@ void Character::setExperience(int exp)
 	}
 
 	experience += exp;
-	cout << "경험치 +" << exp << " (현재: " << experience << "/100)" << endl;
 
 	// 경험치가 100 이상이면 레벨업 (연속 레벨업 가능) && 연산자로 다중 조건 처리
 	while (experience >= 100 && level < MAX_LEVEL)
@@ -143,11 +140,6 @@ void Character::setGold(int amount)
 	{
 		gold = 0;
 	}
-}
-
-void Character::setScroll(int value)
-{
-	scroll = value;
 }
 
 //get 함수
@@ -170,6 +162,12 @@ int Character::getHealth() const
 {
 	return health;
 }
+
+int Character::getMaxHealth() const
+{
+	return maxHealth;
+}
+
 
 int Character::getAttack() const
 {
@@ -194,50 +192,3 @@ const Inventory& Character::getInventory() const {
 	return *inventory;
 }
 
-int Character::getScroll() const
-{
-	return scroll;
-}
-
-int Character::getAttackBoost() const
-{
-	return attackBoost;
-}
-
-//아이템 사용
-void Character::useItemFromInventory() {
-	if (inventory->size() == 0) {
-		cout << "인벤토리가 비어있습니다!" << endl;
-		return;
-	}
-
-	cout << "어떤 아이템을 사용하시겠습니까?" << endl;
-	cout << "======================" << endl;
-	inventory->showItemsSimple();
-	cout << "0) 지금은 사용하지 않는다 " << endl;
-	cout << "======================" << endl;
-	cout << "사용할 아이템 번호: ";
-	int sel;
-	cin >> sel;
-
-	if (sel == 0) return; // 뒤로
-	int idx = sel - 1;
-
-	if (idx < 0 || idx >= inventory->size()) {
-		cout << "잘못된 선택입니다." << endl;
-		return;
-	}
-
-	const Item* it = inventory->getItem(idx);
-	if (!it) {
-		cout << "존재하지 않는 아이템입니다." << endl;
-		return;
-	}
-
-	// 아이템 효과 적용
-	it->use(this);
-
-	// 소모품이므로 인벤토리에서 제거
-	inventory->eraseAt(idx);
-	
-}

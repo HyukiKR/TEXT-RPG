@@ -9,6 +9,7 @@ Magmagollem::Magmagollem(int level) {
 	intro = "Äô.. Äô..";
 	deathline = "(¹ÙÀ§°¡ ºÎ¼Å½Ã¸ç ÇÙ¸¸ ³²¾Ò´Ù.)";
 	health = level * randNum(20, 30);
+	maxHealth = health;
 	attack = level * randNum(5, 10);
 
 }
@@ -30,6 +31,10 @@ int Magmagollem::randNum(int min, int max) {
 	mt19937 gen(rd());
 	uniform_int_distribution<int> dist(min, max);
 	return dist(gen);
+}
+
+int Magmagollem::getMaxHealth() {
+	return maxHealth;
 }
 
 string Magmagollem::getIntro() {
