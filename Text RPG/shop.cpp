@@ -51,83 +51,109 @@ void Shop::setStockForJob(Job job, int classCount, int scrollCount) {
     }
 }
 
-
-void Shop::showBuyList() const {
-    cout << "[구매]\n";
-    for (int i = 0; i < (int)items_.size(); ++i) {
-        cout << (i + 1) << ") "
-            << items_[i].getName()
-            << " - " << items_[i].getPrice() << "G\n";
-    }
-    cout << "0) 뒤로\n";
-}
-
 bool Shop::buyOnce(int& playerGold, Inventory& inv) {
+    UI ui;
+    system("cls");
     if (inv.isFull()) {
         cout << "인벤토리가 가득 차서 구매할 수 없습니다.\n";
         return false;
     }
+    vector<Item*> itemPtrs;
 
-    showBuyList();
-    cout << "선택: ";
-    int sel; cin >> sel;
-    if (sel == 0) return false;
-
-    int idx = sel - 1;
-    if (idx < 0 || idx >= (int)items_.size()) {
-        cout << "잘못된 선택입니다.\n";
-        return false;
+    for (auto& obj : items_)
+    {
+        itemPtrs.push_back(&obj);
     }
 
-    const Item& it = items_[idx];
-    if (playerGold < it.getPrice()) {
-        cout << "골드가 부족합니다.\n";
+    int sel = ui.buyDisplay(itemPtrs);
+
+    if (sel == 4) 
+        return false;
+
+    if (items_.size() != 0)
+    {
+        const Item& it = items_[sel];
+
+        if (playerGold < it.getPrice()) {
+            cout << endl << endl << "골드가 부족합니다.\n";
+
+            system("pause");
+            return false;
+        }
+
+        playerGold -= it.getPrice();
+        inv.addItem(it);
+        cout << endl << endl << it.getName() << " 구매 완료! (남은 골드: " << playerGold << ")\n";
+        system("pause");
+        return true;
+    }
+    else
+    {
+        cout << endl << endl << "재고가 없습니다." << endl;
+        system("pause");
         return false;
     }
-
-    playerGold -= it.getPrice();
-    inv.addItem(it);
-    cout << it.getName() << " 구매 완료! (남은 골드: " << playerGold << ")\n";
-    return true;
 }
 
 bool Shop::sellOnce(int& playerGold, Inventory& inv) {
-    inv.showItemsSimple();
-    cout << "0) 뒤로\n판매할 번호: ";
-    int sel; cin >> sel;
-    if (sel == 0) return false;
+    UI ui;
+    system("cls");
 
-    int idx = sel - 1;
-    if (idx < 0 || idx >= inv.size()) {
-        cout << "잘못된 선택입니다.\n";
-        return false;
+    vector<const Item*> itemPtrs;
+
+    for (int i = 0; i < 5; i++)
+    {
+        const Item* itemPtr = inv.getItem(i);
+        itemPtrs.push_back(itemPtr);
     }
 
-    const Item* it = inv.getItem(idx);
-    if (!it) return false;
+    int sel = ui.sellDisplay(itemPtrs);
 
-    int sellPrice = (int)round(it->getPrice() * 0.6);
-    playerGold += sellPrice;
-    inv.eraseAt(idx);
+    if (sel == 5) return false;
 
-    cout << it->getName() << " 판매! +" << sellPrice
-        << "G (현재 골드: " << playerGold << ")\n";
-    return true;
+    const Item* it = inv.getItem(sel);
+
+    if (it == nullptr)
+    {
+        cout << endl << endl << "비어있습니다." << endl;
+        system("pause");
+        return false;
+    }
+    else
+    {
+        int sellPrice = (int)round(it->getPrice() * 0.6);
+        playerGold += sellPrice;
+        inv.eraseAt(sel);
+
+        cout << it->getName() << " 판매! +" << sellPrice
+            << "G (현재 골드: " << playerGold << ")\n";
+
+        system("pause");
+
+        return true;
+    }
 }
 
 void Shop::open(int& playerGold, Inventory& inv) {
-    while (true) {
-        cout << "\n[상점] 골드: " << playerGold << "\n"
-            << "1) 구매\n"
-            << "2) 판매\n"
-            << "3) 인벤토리 보기\n"
-            << "0) 나가기\n"
-            << "선택: ";
-        int sel; cin >> sel;
-        if (sel == 0) break;
-        if (sel == 1) { buyOnce(playerGold, inv); }
-        else if (sel == 2) { sellOnce(playerGold, inv); }
-        else if (sel == 3) { inv.showWithSlots(); }
-        else { cout << "잘못된 선택입니다.\n"; }
+    UI ui;
+
+    while (true) 
+    {
+        int sel = ui.ShopMenuDisplay();
+
+        switch (sel)
+        {
+        case 1:
+            buyOnce(playerGold, inv);
+            break;
+        case 2:
+            sellOnce(playerGold, inv);
+            break;
+        case 3:
+            inv.showWithSlots();
+            break;
+        case 4:
+            return;
+        }
     }
 }

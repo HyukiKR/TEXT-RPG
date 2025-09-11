@@ -8,6 +8,7 @@ SkeletonWarrior::SkeletonWarrior(int level) {
 	intro = ".....(검을 들고 다가온다)";
 	deathline = "(뼈가 흐트러지며 주저앉았다)";
 	health = level * randNum(20, 30);
+	maxHealth = health;
 	attack = level * randNum(5, 10);
 }
 
@@ -32,6 +33,10 @@ int SkeletonWarrior::randNum(int min, int max) {
 
 string SkeletonWarrior::getIntro() {
 	return intro;
+}
+
+int SkeletonWarrior::getMaxHealth() {
+	return maxHealth;
 }
 
 string SkeletonWarrior::getDeathLine() {
