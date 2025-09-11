@@ -33,7 +33,7 @@ void displayAfterBattleChoice()
 
 Monster* GameManager::generateMonster(int level)
 {
-	int ran = randNum(0, 9);
+	int ran = randNum(0, 8);
 
 	switch (ran)
 	{
@@ -276,6 +276,31 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 				for (Monster* monster : monsters)
 				{
 					monster->takeDamage(scroll);
+
+					if (monster->getHealth() <= 0)
+					{
+						cout << monster->getName() << " 처치!" << endl;
+						logger->logBattle(monster->getName(), true);  // 로그 추가
+						totalExp += 50;  // 몬스터당 50 경험치
+						defeatedCount++;
+
+						delete monster;
+
+						if (monsters.empty())
+						{
+							cout << endl << "모든 몬스터를 처치하였습니다!" << endl;
+							cout << "총 " << defeatedCount << "마리 처치!" << endl;
+							reward(Player, totalExp);  // 총 경험치 한번에 지급
+
+							// 전투 후 선택
+							handleAfterBattle(Player);
+							return;
+						}
+					}
+					else
+					{
+						cout << monster->getName() << " 체력: " << monster->getHealth() << endl;
+					}
 				}
 			}
 			else if (scroll < 0) // 몬스터 공격력 디버프
@@ -417,6 +442,22 @@ void GameManager::battle(Character* Player)
 				if (scroll > 0) // 광역공격
 				{
 					monster->takeDamage(scroll);
+
+					if (monster->getHealth() <= 0)
+					{
+						cout << monster->getName() << " 처치!" << endl;
+						logger->logBattle(monster->getName(), true);  // 로그 추가
+						delete monster;
+						reward(Player, 50);
+
+						// 전투 후 선택
+						handleAfterBattle(Player);
+						return;
+					}
+					else
+					{
+						cout << monster->getName() << " 체력: " << monster->getHealth() << endl;
+					}
 				}
 				else if (scroll < 0) // 몬스터 공격력 디버프
 				{
