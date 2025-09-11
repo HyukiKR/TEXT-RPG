@@ -6,6 +6,7 @@ using namespace std;
 Zombie::Zombie(int level) {
 	name = "Zombie";
 	health = level * randNum(20, 30);
+	maxHealth = health;
 	attack = level * randNum(5, 10);
 }
 
@@ -19,6 +20,10 @@ int Zombie::getHealth() {
 
 int Zombie::getAttack() {
 	return attack;
+}
+
+int Zombie::getMaxHealth() {
+	return maxHealth;
 }
 
 int Zombie::randNum(int min, int max) {

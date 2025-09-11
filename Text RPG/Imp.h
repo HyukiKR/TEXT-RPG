@@ -10,18 +10,20 @@ private:
 	string intro;
 	string deathline;
 	int health;
+	int maxHealth;
 	int attack;
 
 public:
 	Imp(int level);
-	string getName() const;
-	int getHealth() const;
-	int getAttack() const;
+	string getName();
+	int getHealth();
+	int getAttack();
+	int getMaxHealth();
 	void takeDamage(int damage);
 	int randNum(int min, int max);
 
-	std::string getIntro() const;
-	std::string getDeathLine() const;
+	std::string getIntro();
+	std::string getDeathLine();
 };
 
 #endif

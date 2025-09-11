@@ -2,6 +2,7 @@
 #ifndef GAMEMANAGER_H
 #define GAMEMANAGER_H
 
+#include <vector>
 #include "Character.h"
 #include "Monster.h"
 #include "Goblin.h"
@@ -19,8 +20,8 @@
 #include "Item.h"
 #include "Inventory.h"
 #include "shop.h"
-#include <vector>
 #include "inventory.h"
+#include "UI.h"
 
 class GameManager {
 public:

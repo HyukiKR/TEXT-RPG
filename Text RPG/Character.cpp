@@ -43,12 +43,15 @@ Character* Character::getInstance(const string name, int job)
 //캐릭터 상태창 디스플레이
 void Character::displayStatus() const
 {
+	system("cls");
 	cout << endl << "이름: " << name << endl;
 	cout << "레벨: " << level << endl;
 	cout << "체력: " << health << "/" << maxHealth << endl;
 	cout << "공격력: " << attack << endl;
 	cout << "경험치: " << experience << endl;
 	cout << "골드: " << gold << endl;
+
+	system("pause");
 }
 
 //레벨업 메소드
@@ -122,7 +125,6 @@ void Character::setExperience(int exp)
 	}
 
 	experience += exp;
-	cout << "경험치 +" << exp << " (현재: " << experience << "/100)" << endl;
 
 	// 경험치가 100 이상이면 레벨업 (연속 레벨업 가능) && 연산자로 다중 조건 처리
 	while (experience >= 100 && level < MAX_LEVEL)
@@ -160,6 +162,12 @@ int Character::getHealth() const
 {
 	return health;
 }
+
+int Character::getMaxHealth() const
+{
+	return maxHealth;
+}
+
 
 int Character::getAttack() const
 {

@@ -72,9 +72,6 @@
     <ClCompile Include="Alchemist.cpp">
       <Filter>소스 파일\캐릭터 소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Intro.cpp">
-      <Filter>소스 파일\인트로 소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Pirate.cpp">
       <Filter>소스 파일\캐릭터 소스 파일</Filter>
     </ClCompile>
@@ -114,11 +111,14 @@
     <ClCompile Include="Imp.cpp">
       <Filter>소스 파일\몬스터 소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="GameManager.cpp">
-      <Filter>헤더 파일\게임매니저 헤더 파일</Filter>
-    </ClCompile>
     <ClCompile Include="GameLogger.cpp">
-      <Filter>헤더 파일\게임매니저 헤더 파일</Filter>
+      <Filter>소스 파일\게임매니저 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>소스 파일\게임매니저 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UI.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,9 +152,6 @@
     <ClInclude Include="Farmer.h">
       <Filter>헤더 파일\캐릭터 헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Intro.h">
-      <Filter>헤더 파일\인트로 헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Item.h">
       <Filter>헤더 파일\인벤토리 헤더 파일</Filter>
     </ClInclude>
@@ -166,9 +163,6 @@
     </ClInclude>
     <ClInclude Include="shop.h">
       <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="GameLogger.h">
-      <Filter>소스 파일\게임매니저 소스 파일</Filter>
     </ClInclude>
     <ClInclude Include="Demonlord.h">
       <Filter>헤더 파일\몬스터 헤더 파일</Filter>
@@ -194,8 +188,17 @@
     <ClInclude Include="Imp.h">
       <Filter>헤더 파일\몬스터 헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="job.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLogger.h">
+      <Filter>헤더 파일\게임매니저 헤더 파일</Filter>
+    </ClInclude>
     <ClInclude Include="GameManager.h">
-      <Filter>소스 파일\게임매니저 소스 파일</Filter>
+      <Filter>헤더 파일\게임매니저 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
