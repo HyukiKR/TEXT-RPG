@@ -37,7 +37,7 @@ void Item::use(Character* character) const {
 			character->setScroll(effect_value_);
 			cout << "폭발탄이 주변 적들에게 퍼집니다! (데미지 " << effect_value_ << ")" << endl;
 		}
-		else if (name_ == "Explosive Bullet Scroll") {
+		else if (name_ == "Piercing shot Scroll") {
 			character->setScroll(effect_value_);
 			cout << "관통탄이 적 방어를 무시하고 명중했습니다! (데미지 " << effect_value_ << ")" << endl;
 		}
