@@ -122,6 +122,10 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 	{
 		int choice = ui.multiBattleDisplay(Player, monsters);
 
+		//캐릭터 스크롤 사용 효과 저장용 변수
+		int scroll = 0;
+		int debuff = 0;
+
 		switch (choice)
 		{
 		case 1:
@@ -138,11 +142,11 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 			cout << "> " << Player->getName() << "가(이) " << target->getName() << "를(을) 상대로 공격합니다." << endl;
 			cout << "> " << target->getName() << "는(은) ";
 			ui.SetColor(12);
-			cout << Player->getAttack();
+			cout << Player->getAttack() + Player->getAttackBoost();
 			ui.SetColor(15);
 			cout << "의 피해를 입었습니다." << endl << endl;
 
-			target->takeDamage(Player->getAttack());
+			target->takeDamage(Player->getAttack() + Player->getAttackBoost());
 
 			cout << "> " << target->getName() << "의 현재 HP" << endl;
 			cout << "HP: ";
@@ -181,11 +185,11 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 				cout << "> " << monster->getName() << "가(이) " << Player->getName() << "를(을) 공격합니다." << endl;
 				cout << "> " << Player->getName() << "는(은)";
 				ui.SetColor(12);
-				cout << Player->getAttack();
+				cout << Player->getAttack() + debuff;
 				ui.SetColor(15);
 				cout << "의 피해를 입었습니다." << endl << endl;
 
-				Player->takeDamage(monster->getAttack());
+				Player->takeDamage(monster->getAttack() + debuff);
 
 				if (Player->getHealth() <= 0)
 				{
@@ -214,8 +218,60 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 
 		case 2:
 		{
-			Inventory& inv = Player->getInventory();
-			inv.showItemsSimple();
+			//Inventory& inv = Player->getInventory();
+			//inv.showItemsSimple();
+			Player->useItemFromInventory();
+
+			scroll = Player->getScroll(); // 스크롤 사용 여부 상태
+
+			if (scroll > 0) // 광역공격
+			{
+				vector<Monster*> toDelete;
+
+				for (Monster* monster : monsters)
+				{
+					monster->takeDamage(scroll);
+
+					if (monster->getHealth() <= 0)
+					{
+						cout << monster->getName() << " 처치!" << endl;
+						logger->logBattle(monster->getName(), true);  // 로그 추가
+						totalExp += 50;  // 몬스터당 50 경험치
+						defeatedCount++;
+
+						toDelete.push_back(monster);
+					}
+					else
+					{
+						cout << monster->getName() << " 체력: " << monster->getHealth() << endl;
+					}
+				}
+
+				// 체력이 0인 개체 삭제
+				for (Monster* m : toDelete)
+				{
+					monsters.erase(std::remove(monsters.begin(), monsters.end(), m), monsters.end());
+				}
+
+				//몬스터 처치여부 확인
+				if (monsters.empty())
+				{
+					cout << endl << "모든 몬스터를 처치하였습니다!" << endl;
+					cout << "총 " << defeatedCount << "마리 처치!" << endl;
+					reward(Player, totalExp);  // 총 경험치 한번에 지급
+
+					// 전투 후 선택
+					handleAfterBattle(Player);
+					return;
+				}
+
+			}
+			else if (scroll < 0) // 몬스터 공격력 디버프
+			{
+				debuff = scroll;
+			}
+
+			Player->setScroll(0);
 			break;
 		}
 
@@ -283,6 +339,10 @@ void GameManager::battle(Character* Player)
 
 			int choice = ui.singleBattleDisplay(Player, monster);
 
+			//캐릭터 스크롤 사용 효과 저장용 변수
+			int scroll = 0;
+			int debuff = 0;
+
 			switch (choice)
 			{
 			case 1:
@@ -294,11 +354,11 @@ void GameManager::battle(Character* Player)
 				cout << "> " << Player->getName() << "가(이) " << monster->getName() << "를(을) 상대로 공격합니다." << endl;
 				cout << "> " << monster->getName() << "는(은) ";
 				ui.SetColor(12);
-				cout << Player->getAttack();
+				cout << Player->getAttack() + Player->getAttackBoost();
 				ui.SetColor(15);
 				cout << "의 피해를 입었습니다." << endl << endl;
 
-				monster->takeDamage(Player->getAttack());
+				monster->takeDamage(Player->getAttack() + Player->getAttackBoost());
 
 				cout << "> " << monster->getName() << "의 현재 HP" << endl;
 				cout << "HP: ";
@@ -325,11 +385,11 @@ void GameManager::battle(Character* Player)
 				cout << "> " << monster->getName() << "가(이) " << Player->getName() << "를(을) 공격합니다." << endl;
 				cout << "> " << Player->getName() << "는(은)";
 				ui.SetColor(12);
-				cout << Player->getAttack();
+				cout << Player->getAttack() + debuff;
 				ui.SetColor(15);
 				cout << "의 피해를 입었습니다." << endl << endl;
 
-				Player->takeDamage(monster->getAttack());
+				Player->takeDamage(monster->getAttack() + debuff);
 
 				cout << "> " << Player->getName() << "의 현재 HP: ";
 				ui.SetColor(10);
@@ -350,8 +410,39 @@ void GameManager::battle(Character* Player)
 			}
 			case 2:
 			{
-				Inventory& inv = Player->getInventory();
-				inv.showItemsSimple();
+				//Inventory& inv = Player->getInventory();
+				//inv.showItemsSimple();
+				Player->useItemFromInventory();
+
+				scroll = Player->getScroll(); // 스크롤 사용 여부 상태
+
+				if (scroll > 0) // 광역공격
+				{
+					monster->takeDamage(scroll);
+
+					if (monster->getHealth() <= 0)
+					{
+						cout << monster->getName() << " 처치!" << endl;
+						logger->logBattle(monster->getName(), true);  // 로그 추가
+						delete monster;
+						reward(Player, 50);
+
+						// 전투 후 선택
+						handleAfterBattle(Player);
+						return;
+					}
+					else
+					{
+						cout << monster->getName() << " 체력: " << monster->getHealth() << endl;
+					}
+				}
+				else if (scroll < 0) // 몬스터 공격력 디버프
+				{
+					debuff = scroll;
+				}
+
+				Player->setScroll(0);
+
 				break;
 			}
 
