@@ -11,30 +11,25 @@ int Imp::randNum(int min, int max) {
 Imp::Imp(int level) {
     name = "Imp";
     health = 25;
-    maxHealth = health;
     attack = 5;
 }
 
-string Imp::getName() {
+string Imp::getName() const {
     return name;
 }
-int Imp::getHealth() {
+int Imp::getHealth() const {
     return health;
 }
-int Imp::getAttack() {
+int Imp::getAttack() const {
     return attack;
 }
 
-string Imp::getIntro() {
+string Imp::getIntro() const {
     return "너도 내 보물 훔지러왔심?";
 }
 
-string Imp::getDeathLine() {
+string Imp::getDeathLine() const {
     return "죽어서 저주할거임 흑흑";
-}
-
-int Imp::getMaxHealth() {
-    return maxHealth;
 }
 
 void Imp::takeDamage(int damage) {

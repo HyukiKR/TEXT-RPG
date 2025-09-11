@@ -8,7 +8,6 @@ Troll::Troll(int level) {
 	intro = "트롤왕이 나가신다 길을 비켜라";
 	deathline = "내가 트롤왕인데...";
 	health = level * randNum(20, 30);
-	maxHealth = health;
 	attack = level * randNum(5, 10);
 }
 
@@ -27,11 +26,6 @@ int Troll::getAttack() {
 string Troll::getIntro() {
 	return intro;
 }
-
-int Troll::getMaxHealth() {
-	return maxHealth;
-}
-
 string Troll::getDeathLine() {
 	return deathline;
 }
@@ -42,6 +36,9 @@ int Troll::randNum(int min, int max) {
 	uniform_int_distribution<int> dist(min, max);
 	return dist(gen);
 }
+
+
+
 
 void Troll::takeDamage(int damage) {
 

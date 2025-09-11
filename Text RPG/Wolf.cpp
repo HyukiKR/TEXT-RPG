@@ -8,7 +8,6 @@ Wolf::Wolf(int level) {
 	intro = "嬴辦辦辦辦~";
 	deathline = "郭釧.. 郭濘..";
 	health = level * randNum(20, 30);
-	maxHealth = health;
 	attack = level * randNum(5, 10);
 }
 
@@ -34,11 +33,6 @@ int Wolf::randNum(int min, int max) {
 string Wolf::getIntro() {
 	return intro;
 }
-
-int Wolf::getMaxHealth() {
-	return maxHealth;
-}
-
 string Wolf::getDeathLine() {
 	return deathline;
 }

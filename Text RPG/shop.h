@@ -5,7 +5,6 @@
 #include <random>
 #include <algorithm>
 #include "Item.h"
-#include "UI.h"
 #include "Inventory.h"
 #include "ItemFactory.h"
 #include "Job.h"  // Job enum Ãß°¡
@@ -18,6 +17,7 @@ class Shop {
 private:
     vector<Item> items_;
 
+    void showBuyList() const;
     bool buyOnce(int& playerGold, Inventory& inv);
     bool sellOnce(int& playerGold, Inventory& inv);
 

@@ -4,8 +4,6 @@
 #include <string>
 #include "Item.h"
 #include "Character.h" 
-#include <limits>
-
 using namespace std;
 
 class Inventory {

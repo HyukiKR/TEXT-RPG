@@ -8,7 +8,6 @@ Slime::Slime(int level) {
 	intro = "스물스물..";
 	deathline = "취이익.. 증발해버렸다";
 	health = level * randNum(20, 30);
-	maxHealth = health;
 	attack = level * randNum(5, 10);
 }
 
@@ -24,10 +23,6 @@ int Slime::getAttack() {
 	return attack;
 }
 
-int Slime::getMaxHealth() {
-	return maxHealth;
-}
-
 string Slime::getIntro() {
 	return intro;
 }
@@ -41,6 +36,8 @@ int Slime::randNum(int min, int max) {
 	uniform_int_distribution<int> dist(min, max);
 	return dist(gen);
 }
+
+
 
 void Slime::takeDamage(int damage) {
 	health -= damage;

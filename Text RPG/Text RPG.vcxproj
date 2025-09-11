@@ -130,6 +130,7 @@
     <ClCompile Include="GameLogger.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Goblin.cpp" />
+    <ClCompile Include="Intro.cpp" />
     <ClCompile Include="inventory.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemFactory.cpp" />
@@ -144,7 +145,6 @@
     <ClCompile Include="Dragon.cpp" />
     <ClCompile Include="Lizardmen.cpp" />
     <ClCompile Include="Magmagollem.cpp" />
-    <ClCompile Include="UI.cpp" />
     <ClCompile Include="Wolf.cpp" />
     <ClCompile Include="Zombie.cpp" />
     <ClCompile Include="Skeletonwarrior.cpp" />
@@ -157,6 +157,7 @@
     <ClInclude Include="GameLogger.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Goblin.h" />
+    <ClInclude Include="Intro.h" />
     <ClInclude Include="inventory.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemFactory.h" />
@@ -172,7 +173,6 @@
     <ClInclude Include="Demonlord.h" />
     <ClInclude Include="Dragon.h" />
     <ClInclude Include="Skeletonwarrior.h" />
-    <ClInclude Include="UI.h" />
     <ClInclude Include="Wolf.h" />
     <ClInclude Include="Zombie.h" />
     <ClInclude Include="Lizardmen.h" />

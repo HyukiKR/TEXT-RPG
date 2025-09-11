@@ -10,19 +10,17 @@ private:
 	string intro;
 	string deathline;
 	int health;
-	int maxHealth;
 	int attack;
 
 public:
 	Goblin(int level);
-	string getName() ;
-	int getHealth() ;
-	int getAttack() ;
-	int getMaxHealth() ;
+	string getName();
+	int getHealth();
+	int getAttack();
 	void takeDamage(int damage);
 	int randNum(int min, int max);
 
-	string getIntro() ;
-	string getDeathLine() ;
+	string getIntro();
+	string getDeathLine();
 };
 #endif // !GOBLIN_H

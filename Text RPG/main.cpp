@@ -1,35 +1,66 @@
-﻿#include <iostream>
-#include <windows.h>
-#include "GameManager.h"
+﻿#include "GameManager.h"
 #include "GameLogger.h"
+#include <iostream>
+#include "Character.h"
 #include "Knight.h"
 #include "Alchemist.h"
 #include "Pirate.h"
 #include "Farmer.h"
-#include "UI.h"
+#include "Intro.h"
+#include "Shop.h"
 
 using namespace std;
 
 Character* Character::instance = nullptr;
 
-
 int main()
 {
 	GameManager gameManager;
-	UI UI;
 	GameLogger* logger = GameLogger::getInstance();
 	Monster* monster = nullptr;
-	string name;
 
-    UI.displayIntro(); //인트로 화면 출력
-	int job_choice = UI.characterSetDisplay(name); //캐릭터 이름 설정 화면 출력
+    Intro().displayIntro(); //인트로 화면 출력
+
+	cout << "캐릭터 이름을 입력하세요: ";
+	string name;
+	cin >> name;
+
+	int job_choice = 0;
+	for (;;)
+	{
+		cout << "원하는 직업을 선택해주세요." << endl << "1. 기사  2. 연금술사  3. 해적  4. 농부" << endl;
+		cin >> job_choice;
+		if (job_choice > 0 && job_choice < 5)
+		{
+			break;
+		}
+		else
+		{
+			cout << "잘못된 입력입니다" << endl;
+		}
+	}
 
 	Character* player = Character::getInstance(name, job_choice);
 	logger->logJobSelected(player->getJobName());  // 로그 추가
 
+	cout << player->getJobName() << " " << name << " 생성 완료! 레벨: " << player->getLevel() << ", 체력: " <<
+		player->getHealth() << ", 공격력: " << player->getAttack() << endl << endl;
+
 	// 게임 루프
 	while (true) {
-		int choice = UI.mainMenuDisplay();
+		cout << "\n===== 메인 메뉴 =====\n";
+		cout << "1. 전투\n";
+		cout << "2. 상태 확인\n";
+		cout << "3. 상점\n";
+		cout << "4. 인벤토리\n";
+		cout << "5. 로그 확인\n";
+		cout << "6. 전투 기록\n";
+		cout << "7. 로그 저장\n";
+		cout << "8. 종료\n";
+		cout << "선택: ";
+
+		int choice;
+		cin >> choice;
 
 		switch (choice) {
 		case 1:

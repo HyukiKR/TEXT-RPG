@@ -7,7 +7,6 @@ Dragon::Dragon(int level) {
 	intro = "하찮은 인간이 감히 여기까지 오는구나";
 	deathline = "내가 인간따위에게 지다니..";
 	health = level * randNum(20, 30);
-	maxHealth = health;
 	attack = level * randNum(5, 10);
 }
 
@@ -17,10 +16,6 @@ string Dragon::getName() {
 
 int Dragon::getHealth() {
 	return health;
-}
-
-int Dragon::getMaxHealth() {
-	return maxHealth;
 }
 
 int Dragon::getAttack() {
@@ -34,10 +29,10 @@ int Dragon::randNum(int min, int max) {
 	return dist(gen);
 }
 
-string Dragon::getIntro() {
+string Dragon::getIntro() const {
 	return intro;
 }
-string Dragon::getDeathLine() {
+string Dragon::getDeathLine() const {
 	return deathline;
 }
 

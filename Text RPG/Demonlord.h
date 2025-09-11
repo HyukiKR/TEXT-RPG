@@ -10,20 +10,18 @@ private:
     string intro;
     string deathline;
     int health;
-    int maxHealth;
     int attack;
 
 public:
     DemonLord(int level);
-    string getName();
-    int getHealth();
-    int getAttack();
-    int getMaxHealth();
+    string getName() const;
+    int getHealth() const;
+    int getAttack() const;
     void takeDamage(int damage);
     int randNum(int min, int max);
 
-    string getIntro();
-    string getDeathLine();
+    string getIntro() const;
+    string getDeathLine() const;
 };
 
 #endif

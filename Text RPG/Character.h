@@ -53,7 +53,6 @@ public:
 	string getJobName() const;
 	int getLevel() const;
 	int getHealth() const;
-	int getMaxHealth() const;
 	int getAttack() const;
 	int getExperience() const;
 	int getGold() const;
