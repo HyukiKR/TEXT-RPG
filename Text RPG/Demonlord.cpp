@@ -14,24 +14,31 @@ DemonLord::DemonLord(int level) {
     intro = "내 애완동물을 이기고오다니 쓸만한 녀석이구나";
     deathline = "말도 안 돼... 내가... 지다니...하지만 끝이 아니다! ";
     health = level * randNum(20, 30) * 2;
+    maxHealth = health;
     attack = level * randNum(5, 10) * 2;
 }
 
-string DemonLord::getName() const {
+string DemonLord::getName() {
     return name;
 }
-int DemonLord::getHealth() const {
+
+int DemonLord::getHealth() {
     return health;
 }
-int DemonLord::getAttack() const {
+
+int DemonLord::getAttack() {
     return attack;
 }
 
-string DemonLord::getIntro() const {
+int DemonLord::getMaxHealth() {
+    return maxHealth;
+}
+
+string DemonLord::getIntro() {
     return intro;
 }
 
-string DemonLord::getDeathLine() const {
+string DemonLord::getDeathLine() {
     return deathline;
 }
 

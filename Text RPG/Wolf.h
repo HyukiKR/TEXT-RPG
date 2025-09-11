@@ -11,6 +11,7 @@ private:
 	string intro;
 	string deathline;
 	int health;
+	int maxHealth;
 	int attack;
 
 public:
@@ -18,6 +19,7 @@ public:
 	string getName();
 	int getHealth();
 	int getAttack();
+	int getMaxHealth();
 	void takeDamage(int damage);
 	int randNum(int min, int max);
 	string getIntro();

@@ -8,11 +8,16 @@ Goblin::Goblin(int level) {
 	intro = "Å±Å± µ·³»³ö¶ó ÀÎ°£";
 	deathline = "³¢ÀÍ.. ³ª Á×´Â´Ù";
 	health = level * randNum(20, 30);
+	maxHealth = health;
 	attack = level * randNum(5, 10);
 }
 
 string Goblin::getName() {
 	return name;
+}
+
+int Goblin::getMaxHealth() {
+	return maxHealth;
 }
 
 int Goblin::getHealth() {

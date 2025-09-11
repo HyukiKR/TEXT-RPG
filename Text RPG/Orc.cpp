@@ -8,6 +8,7 @@ Orc::Orc(int level) {
 	intro = "무기를 들어라, 결투다";
 	deathline = "크으윽. 명예로운 죽음이다";
 	health = level * randNum(20, 30);
+	maxHealth = health;
 	attack = level * randNum(5, 10);
 }
 
@@ -21,6 +22,10 @@ int Orc::getHealth() {
 
 int Orc::getAttack() {
 	return attack;
+}
+
+int Orc::getMaxHealth() {
+	return maxHealth;
 }
 
 string Orc::getIntro() {
