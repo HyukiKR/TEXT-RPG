@@ -159,7 +159,7 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 
 				delete target;
 				monsters.erase(monsters.begin() + targetIndex - 1);
-
+				//
 				if (monsters.empty())
 				{
 					cout << endl << "모든 몬스터를 처치하였습니다!" << endl;
