@@ -273,6 +273,8 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 
 			if (scroll > 0) // 광역공격
 			{
+				vector<Monster*> toDelete;
+
 				for (Monster* monster : monsters)
 				{
 					monster->takeDamage(scroll);
@@ -284,24 +286,32 @@ void GameManager::multiBattle(Character* Player, vector<Monster*>& monsters)
 						totalExp += 50;  // 몬스터당 50 경험치
 						defeatedCount++;
 
-						delete monster;
-
-						if (monsters.empty())
-						{
-							cout << endl << "모든 몬스터를 처치하였습니다!" << endl;
-							cout << "총 " << defeatedCount << "마리 처치!" << endl;
-							reward(Player, totalExp);  // 총 경험치 한번에 지급
-
-							// 전투 후 선택
-							handleAfterBattle(Player);
-							return;
-						}
+						toDelete.push_back(monster);
 					}
 					else
 					{
 						cout << monster->getName() << " 체력: " << monster->getHealth() << endl;
 					}
 				}
+
+					// 체력이 0인 개체 삭제
+					for (Monster* m : toDelete)
+					{
+						monsters.erase(std::remove(monsters.begin(), monsters.end(), m), monsters.end()); 
+					}
+
+					//몬스터 처치여부 확인
+					if (monsters.empty())
+					{
+						cout << endl << "모든 몬스터를 처치하였습니다!" << endl;
+						cout << "총 " << defeatedCount << "마리 처치!" << endl;
+						reward(Player, totalExp);  // 총 경험치 한번에 지급
+
+						// 전투 후 선택
+						handleAfterBattle(Player);
+						return;
+					}
+
 			}
 			else if (scroll < 0) // 몬스터 공격력 디버프
 			{
