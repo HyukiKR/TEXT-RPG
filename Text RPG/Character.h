@@ -19,6 +19,8 @@ protected:
 	int attack;
 	int experience;
 	int gold;
+	int scroll;
+	int attackBoost;
 	//vector<Item*> inventory;
 
 	Character(string t_name);
@@ -44,6 +46,7 @@ public:
 	void healHealth(const int heal);
 	void boostAttack(const int boost);
 	virtual void attackMassage() = 0;
+	void useItemFromInventory();
 
 	//get
 	string getName() const;
@@ -54,6 +57,8 @@ public:
 	int getAttack() const;
 	int getExperience() const;
 	int getGold() const;
+	int getScroll() const;
+	int getAttackBoost() const;
 	Inventory& getInventory();
 	const Inventory& getInventory() const;  // const 참조 반환
 
@@ -61,6 +66,7 @@ public:
 	void setExperience(int exp);
 	void setGold(int amount);
 	void takeDamage(int damage);
+	void setScroll(int value);
 
 
 };
